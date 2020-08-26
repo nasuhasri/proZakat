@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<?php include 'header.php'; ?>
+</head>
+<?php include 'isi_atas.php'; ?>
+                        <!-- //////////////////////////////////////////////////////// Start Coding -->
+                        <div class="user-data m-b-30">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-account-calendar"></i>Permohonan Selesai</h3>
+                            <div class="table-responsive" id="tableAset">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Kod Aset</th>
+                                            <th>Nama Aset</th>
+                                            <th>Tujuan</th>
+                                            <th>Tarikh Mohon</th>
+                                            <th>Status Permohonan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $conn = OpenCon();
+                                            $uname = $_SESSION['login_user'];
+
+                                            $sql = "SELECT * FROM `mohon_pinjaman` mp, `km_asset` k, `profil_staff` p
+                                                    WHERE mp.assetID = k.assetId
+                                                    AND mp.staffID = p.staffID
+                                                    AND p.username = '$uname'
+                                                    AND mp.kelulusan = 'DILULUSKAN'
+                                                    ORDER BY mp.tarikh_mohon DESC";
+                                            $result = $conn ->query($sql);
+
+                                            if($result-> num_rows > 0) {
+                                                //output data of each row
+                                                $no = 1;
+                                                while($row = $result->fetch_assoc()){
+
+                                                    $mohonID = $row["mohonID"];
+                                                    $astNm = $row["assetName"];
+                                                    $astCode = $row["assetCode"]; 
+                                                    $tujuan = $row["tujuan"];
+                                                    $tDari = $row["tarikh_dari"];
+                                                    $tHingga = $row["tarikh_hingga"];
+                                                    $tMohon =$row["tarikh_mohon"];
+                                                    $status = $row["kelulusan"];        
+                                                    $batal = $row["batal"]; 
+
+                                                    ?>
+                                                        <tr>
+                                                            <td> <?php echo $no++; ?> </td>
+                                                            <td> <?php echo $astCode; ?> </td>
+                                                            <td> <?php echo $astNm; ?> </td>
+                                                            <td> <?php echo $tujuan; ?> </td>
+                                                            <td> <?php echo $tMohon; ?> </td>
+                                                            <?php 
+                                                                if($status=="DILULUSKAN"){
+                                                                    ?><td> <span class="badge badge-success"><?php echo $status; ?></span></td><?php
+                                                                }
+                                                                else if($status=="PENDING"){
+                                                                    ?><td> <span class="badge badge-warning"><?php echo $status; ?></span></td><?php
+                                                                }
+                                                                else if($status=="DIBATALKAN"){
+                                                                    ?><td> <span class="badge badge-danger"><?php echo $status; ?></span></td><?php
+                                                                }
+                                                                else if($status=="DIBATALKAN USER"){
+                                                                    ?><td> <span class="badge badge-danger"><?php echo $status; ?></span></td><?php
+                                                                }
+                                                            ?>
+                                                        </tr>
+                                                    <?php
+                                                }
+                                            }
+                                            else {
+                                                echo "<td><p>Tiada Rekod Yang Dijumpai.</p></td>";
+                                            }
+
+                                            CloseCon($conn);
+                                        ?>
+                                    </tbody>                                    
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <button type="button" class="btn btn-primary" onclick="history.back()">
+                                                <i class="fa fa-history"></i>&nbsp; Kembali </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- //////////////////////////////////////////End of coding -->
+<?php include 'isi_bawah.php'; ?>                    
+</html>
+<!-- end document-->
