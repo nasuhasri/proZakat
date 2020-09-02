@@ -11,8 +11,13 @@
                             /* Get data from bookingAdmin.php */
                             $bookingID = $_GET["bookingID"];
 
-                            $sqlS = "SELECT penyelenggaraan FROM `km_asset` k
-                                    WHERE k.penyelenggaraan = 'SEDANG DISELENGGARA'";
+                            // $sqlS = "SELECT penyelenggaraan FROM `km_asset` k
+                            //         WHERE k.penyelenggaraan = 'SEDANG DISELENGGARA'";
+                            // $resultS = $conn->query($sqlS);
+
+                            $sqlS = "SELECT * FROM `km_asset` km, `mohon_pinjaman` mp
+                                    WHERE km.assetID = mp.assetID
+                                    AND mp.mohonID = $bookingID";
                             $resultS = $conn->query($sqlS);
 
                             if($resultS == true){

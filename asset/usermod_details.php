@@ -75,7 +75,11 @@
                                 }
                             }
                             else {
-                                echo "Error in fetching data";
+                                ?>
+                                    <div class="alert alert-warning" role="alert">
+                                        ID 100 merupakan default value. Tiada maklumat yang akan dipaparkan. <a href="asetAdmin.php" class="alert-link">Tekan Sini Untuk Kembali Ke Page Aset</a>
+                                    </div>
+                                <?php
                             }
 
                             CloseCon($conn);

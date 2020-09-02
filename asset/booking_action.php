@@ -24,6 +24,7 @@
                             $tarikhHingga = $_POST["tarikh-hingga"];
                             $tujuan = $_POST["tujuan"];
                             $astID = $_POST["assetID"];
+                            $qtyAset = $_POST["qty_aset"];
 
                             $uname = $_SESSION['login_user'];
                             $sqlStf = "SELECT * FROM `profil_staff` p
@@ -37,8 +38,8 @@
                             }
 
                             // REMINDER: PLS PUT '' FOR CHARACTER
-                            $sql = "INSERT INTO mohon_pinjaman (mohonID, tarikh_dari,tarikh_hingga,tujuan, tarikh_lulus, assetID, staffID)
-                                    VALUES ($mohonID, '$tarikhDari','$tarikhHingga','$tujuan', '$tarikhLulus', $astID, $stfID)";
+                            $sql = "INSERT INTO mohon_pinjaman (mohonID, tarikh_dari,tarikh_hingga, qtyUser, tujuan, tarikh_lulus, assetID, staffID)
+                                    VALUES ($mohonID, '$tarikhDari','$tarikhHingga', $qtyAset, '$tujuan', '$tarikhLulus', $astID, $stfID)";
                             $result = $conn->query($sql);
 
                             if($result == true){
@@ -92,6 +93,12 @@
                                                         <td> Tarikh Mohon </td>
                                                         <td></td>
                                                         <td> <?php echo $tarikhMohon; ?> </td>
+                                                    <tr>
+
+                                                    <tr>
+                                                        <td> Kuantiti Aset </td>
+                                                        <td></td>
+                                                        <td> <?php echo $qtyAset; ?> </td>
                                                     <tr>
 
                                                     <tr>

@@ -7,12 +7,20 @@
             /* Function to validate the form */
             function validateForm(){
                 var assetID =  document.forms["bookingForm"]["assetID"];
+                var qtyAset = document.forms["bookingForm"]["qty_aset"];
 
                 if (assetID.selectedIndex < 1)                  
                 { 
                     alert("Sila Pilih Aset"); 
                     assetID.focus(); 
                     return false;
+                }
+
+                if (qtyAset == "null" || qtyAset < 0)                  
+                { 
+                    alert("Sila Masukkan Kuantiti Yang Betul"); 
+                    qtyAset.focus(); 
+                    return false; 
                 }
 
                 return true;
@@ -63,7 +71,18 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Pilih Tarikh -->
+                                            <!-- Masukkan kuantiti aset -->
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Kuantiti Aset</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="number" id="qty_aset" name="qty_aset" class="form-control" min= "0" placeholder="10" required>
+                                                    <small class="form-text text-muted">Masukkan kuantiti aset yang diperlukan</small>
+                                                </div>
+                                            </div>
+
+                                            <!-- Pilih Tarikh Dari -->
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Tarikh Dari</label>
@@ -73,6 +92,8 @@
                                                     <small class="form-text text-muted">Pilih tarikh dari bila</small>
                                                 </div>
                                             </div>
+
+                                            <!-- Pilih Tarikh Hingga -->
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Tarikh Hingga</label>

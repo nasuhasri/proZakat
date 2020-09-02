@@ -21,6 +21,7 @@
                                         <strong class="card-title">
                                             <li>Nota Penting: </li>
                                             <li>Default value tarikh lulus adalah tarikh permohonan dilakukan</li>
+                                            <li>Butang tindakan tidak akan boleh ditekan jika kuantiti aset yang diperlukan melebihi kuantiti aset sedia ada</li>
                                         </strong>
                                     </div>
                                 </div>
@@ -34,6 +35,7 @@
                                                 <th>#</th>
                                                 <th>Nama Aset</th>
                                                 <th>Kod Aset</th>
+                                                <th>Kuantiti Aset</th>
                                                 <th>Tujuan</th>
                                                 <th>Tarikh Dari</th>
                                                 <th>Tarikh Hingga</th>
@@ -66,7 +68,9 @@
                                                         $tujuan = $row["tujuan"];
                                                         $status = $row["kelulusan"];
                                                         $astNm = $row["assetName"];
-                                                        $astCode = $row["assetCode"];      
+                                                        $astCode = $row["assetCode"];
+                                                        $qtyNeeded = $row["qtyUser"];  
+                                                        $availableQty = $row["quantity"];    
                                                         $tLulus = $row["tarikh_lulus"]; 
 
                                                         ?>
@@ -74,6 +78,7 @@
                                                                 <td> <?php echo $no++; ?> </td>
                                                                 <td> <?php echo $astNm; ?> </td>
                                                                 <td> <?php echo $astCode; ?> </td>
+                                                                <td> <?php echo $qtyNeeded; ?> </td>
                                                                 <td> <?php echo $tujuan; ?> </td>
                                                                 <td> <?php echo $tDari; ?> </td>
                                                                 <td> <?php echo $tHingga; ?> </td>
@@ -98,17 +103,30 @@
                                                                 <!-- Button Tindakan -->
                                                                 <?php
                                                                 if($status == "PENDING"){
-                                                                    ?>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-success" onclick="window.location.href= 'approve_booking.php?bookingID=<?php echo $mohonID ?>' ">
+                                                                    if($qtyNeeded <= $availableQty){
+                                                                        ?>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-success" onclick="window.location.href= 'approve_booking.php?bookingID=<?php echo $mohonID ?>' ">
+                                                                                <i class="fa fa-edit"></i>&nbsp; Luluskan
+                                                                            </button>
+                                                                            
+                                                                            <button type="button" class="btn btn-danger" onclick="window.location.href= 'reject_booking.php?bookingID=<?php echo $mohonID ?>'">
+                                                                                <i class="fa fa-trash"></i>&nbsp; Batalkan
+                                                                            </button>
+                                                                        </td>
+                                                                        <?php
+                                                                    }
+                                                                    else{
+                                                                        ?>
+                                                                        <td><button type="button" class="btn btn-success" onclick="window.location.href= 'approve_booking.php?bookingID=<?php echo $mohonID ?>' " disabled>
                                                                             <i class="fa fa-edit"></i>&nbsp; Luluskan
-                                                                        </button>
-                                                                        
-                                                                        <button type="button" class="btn btn-danger" onclick="window.location.href= 'reject_booking.php?bookingID=<?php echo $mohonID ?>'">
-                                                                            <i class="fa fa-trash"></i>&nbsp; Batalkan
-                                                                        </button>
-                                                                    </td>
-                                                                    <?php
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-danger" onclick="window.location.href= 'reject_booking.php?bookingID=<?php echo $mohonID ?>'">
+                                                                                <i class="fa fa-trash"></i>&nbsp; Batalkan
+                                                                            </button>
+                                                                        </td>
+                                                                        <?php
+                                                                    }
                                                                 }
                                                                 else{
                                                                     ?>

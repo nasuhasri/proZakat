@@ -55,6 +55,7 @@
                                                 <th>Kod Aset</th>
                                                 <th>Nama Aset</th>
                                                 <th>Status Aset</th>
+                                                <th>Kuantiti Aset</th>
                                                 <th>Admin Modifikasi</th>
                                                 <th>Tarikh Akhir Diselenggara</th>
                                                 <th>Tindakan</th>
@@ -75,12 +76,14 @@
                                                         $status = $row["penyelenggaraan"];
                                                         $uID = $row["userModID"];
                                                         $dateMod = $row["dateMod"];
+                                                        $qtyAset = $row["quantity"];
 
                                                         ?>
                                                             <tr>
                                                                 <td><?php echo $astID ?> </td>
                                                                 <td><?php echo $astCode ?> </td>
                                                                 <td><?php echo $astNm ?> </td>
+
                                                                 <?php 
                                                                     if($status=="MASIH ADA"){
                                                                         ?><td> <span class="badge badge-success"><?php echo $status; ?></span></td><?php
@@ -93,9 +96,8 @@
                                                                     }
                                                                 ?>
 
-                                                                <!-- <td></?php echo $uID ?> </td> -->
+                                                                <td><?php echo $qtyAset ?></td>
                                                                 <td><a href="usermod_details.php?userModID=<?php echo $uID ?>"><?php echo $uID ?></a></td>
-                                                                <!-- <td><a href=displayorderdetails.php?orderid=$orderid>$orderid</a></td> -->
                                                                 <td><?php echo $dateMod ?> </td>
 
                                                                 <td>
@@ -117,7 +119,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <!-- *********************************************** End of coding *********************************************-->
 <?php include 'isi_bawah.php'; ?>                    
 </html>

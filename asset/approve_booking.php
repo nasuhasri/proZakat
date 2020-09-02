@@ -32,11 +32,43 @@
                                 if(! $result){
                                     die('Could not update data: '. mysqli_error($conn));
                                 }
-                                else {
-                                    echo "<script type='text/javascript'>
-                                            alert('Permohonon Berjaya Diluluskan');
-                                            window.location.href='bookingAdmin.php';
-                                        </script>";
+                                // else {
+                                //     echo "<script type='text/javascript'>
+                                //             alert('Permohonon Berjaya Diluluskan');
+                                //             window.location.href='bookingAdmin.php';
+                                //         </script>";
+                                // }
+                            }
+
+                            $sql = "SELECT * FROM `mohon_pinjaman` mp, `km_asset` km
+                                    WHERE mp.assetID = km.assetID
+                                    AND mp.mohonID = $bookingID";
+                            $result = $conn->query($sql);
+
+                            if($result->num_rows > 0){
+                                while($row = $result->fetch_assoc()){
+                                    $availableQty = $row["quantity"];
+                                    $qtyNeeded = $row["qtyUser"];
+                                    $astID = $row["assetID"];
+
+                                    if($qtyNeeded <= $availableQty){
+                                        $qtyLeft = $availableQty - $qtyNeeded;
+
+                                        $sqlUpdate = "UPDATE `km_asset` k
+                                                    SET k.quantity = $qtyLeft
+                                                    WHERE k.assetID = $astID";
+                                        $resultUpdate = $conn->query($sqlUpdate);
+
+                                        if(! $resultUpdate){
+                                            die('Could not update data: '. mysqli_error($conn));
+                                        }
+                                        else {
+                                            echo "<script type='text/javascript'>
+                                                    alert('Permohonon Berjaya Diluluskan');
+                                                    window.location.href='bookingAdmin.php';
+                                                </script>";
+                                        }	
+                                    }
                                 }
                             }
                         ?>

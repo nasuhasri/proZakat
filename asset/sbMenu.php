@@ -22,6 +22,9 @@
                         <li>
                             <a href="bookingAdmin.php">Pinjaman Aset</a>
                         </li>
+                        <li>
+                            <a href="report.php">Laporan</a>
+                        </li>
                     </ul>
                 </li>
                 
