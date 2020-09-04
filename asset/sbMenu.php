@@ -23,6 +23,9 @@
                             <a href="bookingAdmin.php">Pinjaman Aset</a>
                         </li>
                         <li>
+                            <a href="rekod_pemulangan.php">Rekod Pemulangan</a>
+                        </li>
+                        <li>
                             <a href="report.php">Laporan</a>
                         </li>
                     </ul>

@@ -3,26 +3,6 @@
 include("connPZM.php");
 $conn = OpenCon();
 
-$sql = "SELECT * FROM `km_asset` km";
-// $result = $conn->query($sql);
-// $val = array();
-
-// if($result->num_rows > 0){
-//     while($row = mysqli_fetch_array($result)){
-//         echo $row['assetName'];
-//     }
-// }
-
-$rec_ast = mysqli_query($conn, $sql);
-$total_rec = mysqli_num_rows($rec_ast);
-$asset = array();
-$i = 1;
-while ($row = mysqli_fetch_array($rec_ast)) {
-    $asset[$i] = $row['assetName'];
-    $i++;
-
-}
-
 $html = '';
 
 $html .= '
@@ -95,9 +75,31 @@ table thead td { background-color: #EEEEEE;
         </thead>
         <tbody> ';
 
-            $html.= '<!-- ITEMS HERE -->
+        // $sql = "SELECT * FROM `km_asset` km";
+        // $rec_ast = mysqli_query($conn, $sql);
+        // $total_rec = mysqli_num_rows($rec_ast);
+        // $asset = array();
+        // $i = 1;
+        // while ($row = mysqli_fetch_array($rec_ast)) {
+        //     $asset[$i] = $row['assetName'];
+        //     $i++;
+        // }
+        $sql = "SELECT * FROM `km_asset` km";
+        $result = $conn->query($sql);
+
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $astNm = $row["assetName"];
+        
+        //if($total_rec > 0){
+        $html.= '
+            <!-- ITEMS HERE -->
             <tr>
-                <td align="center">MX37801982</td>
+                <td align="center">';
+                for($i = 1; $i <= $total_rec; $i++){
+                    $html .= ($asset[$i]);
+                }
+        $html.= '</td>
                 <td align="center">$name</td>
                 <td>Womans waterproof jacket<br />Options - Red and charcoal.</td>
                 <td class="cost">&pound;102.11</td>
@@ -112,12 +114,16 @@ table thead td { background-color: #EEEEEE;
             </tr>
             <!-- END ITEMS HERE -->
             $values
-        </tbody>
-    </table>
+        </tbody>';
+        }
+    }
+    $html.= '</table>
     <div style="text-align: center; font-style: italic;">Payment terms: payment due in 30 days</div>
 </body>
 </html>
 ';
+            
+
 
 
 

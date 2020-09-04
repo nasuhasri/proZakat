@@ -77,7 +77,7 @@
                             else {
                                 ?>
                                     <div class="alert alert-warning" role="alert">
-                                        ID 100 merupakan default value. Tiada maklumat yang akan dipaparkan. <a href="asetAdmin.php" class="alert-link">Tekan Sini Untuk Kembali Ke Page Aset</a>
+                                        ID 100 merupakan default value. Tiada maklumat yang akan dipaparkan. <a href="index.php" class="alert-link">Tekan Sini Untuk Kembali Ke Page Dashboard</a>
                                     </div>
                                 <?php
                             }

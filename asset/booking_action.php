@@ -11,7 +11,8 @@
                             $conn=OpenCon();
 
                             /*Change the line below to our timezone!*/
-							date_default_timezone_set('Asia/Kuala_Lumpur');
+                            date_default_timezone_set('Asia/Kuala_Lumpur');
+                            $tarikhPulang = date("yy/m/d");
 									
                             /* Get mohonID using rand method */                            
                             $mohonID = date("yy") .rand(100,999);
@@ -38,8 +39,8 @@
                             }
 
                             // REMINDER: PLS PUT '' FOR CHARACTER
-                            $sql = "INSERT INTO mohon_pinjaman (mohonID, tarikh_dari,tarikh_hingga, qtyUser, tujuan, tarikh_lulus, assetID, staffID)
-                                    VALUES ($mohonID, '$tarikhDari','$tarikhHingga', $qtyAset, '$tujuan', '$tarikhLulus', $astID, $stfID)";
+                            $sql = "INSERT INTO mohon_pinjaman (mohonID, tarikh_dari,tarikh_hingga, qtyUser, tujuan, tarikh_lulus, tarikh_pulang, assetID, staffID)
+                                    VALUES ($mohonID, '$tarikhDari','$tarikhHingga', $qtyAset, '$tujuan', '$tarikhLulus','$tarikhPulang', $astID, $stfID)";
                             $result = $conn->query($sql);
 
                             if($result == true){
