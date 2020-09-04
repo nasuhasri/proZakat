@@ -91,13 +91,28 @@
 
                                                                 <!-- Pegawai Yang Menerima -->
                                                                 <td><a href="staff_details.php?userModID=<?php echo $stfID ?>"><?php echo $stfID ?></a></td>
-                                                                
+
                                                                 <!-- Button Tindakan -->
-                                                                <td>
-                                                                    <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' ">
-                                                                        <i class="fa fa-edit"></i>&nbsp; SUDAH DIPULANGKAN
-                                                                    </button>
-                                                                </td>
+                                                                <?php
+                                                                if($pulang == "BELUM DIPULANGKAN"){
+                                                                    ?>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' ">
+                                                                            <i class="fa fa-edit"></i>&nbsp; SUDAH DIPULANGKAN
+                                                                        </button>
+                                                                    </td>
+                                                                    <?php                                                                    
+                                                                }
+                                                                else{
+                                                                    ?>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' " disabled>
+                                                                            <i class="fa fa-edit"></i>&nbsp; SUDAH DIPULANGKAN
+                                                                        </button>
+                                                                    </td>
+                                                                    <?php
+                                                                }
+                                                                ?>
                                                             </tr>
                                                         <?php
                                                     }
