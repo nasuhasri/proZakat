@@ -15,6 +15,17 @@
                         <div class="row">
                             <a href="testPDF.php">Cetak</a>
                         </div>
+
+                        <?php
+                            $sql = "SELECT * FROM `km_asset` km";
+                            $result = $conn->query($sql);
+                            
+                            if($result->num_rows > 0){
+                                while($row = mysqli_fetch_array($result)){
+                                    echo $row['assetName'];
+                                }
+                            }
+                        ?>
                         <!-- *********************************************** End of coding *********************************************-->
 <?php include 'isi_bawah.php'; ?>                    
 </html>

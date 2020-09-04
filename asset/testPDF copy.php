@@ -25,7 +25,7 @@ while ($row = mysqli_fetch_array($rec_ast)) {
 
 $html = '';
 
-$html .= '
+$html .= "
 <html>
 <head>
 <style>
@@ -66,58 +66,57 @@ table thead td { background-color: #EEEEEE;
 
 <body>
     <!--mpdf
-    <htmlpageheader name="myheader">
-        <table width="100%"><tr>
-            <td width="50%" style="color:#0000BB; "><span style="font-weight: bold; font-size: 14pt;">Pusat Zakat Melaka</span><br />No 1,3 &5, Jalan PNBB 1,<br />Kompleks Niaga Bukit Baru,<br />Jalan Bukit Baru, 75150 Melaka.<br /><span style="font-family:dejavusanscondensed;">&#9742;</span> 1-300-88-0233</td>
+    <htmlpageheader name='myheader'>
+        <table width='100%'><tr>
+            <td width='50%' style='color:#0000BB; '><span style='font-weight: bold; font-size: 14pt;'>Pusat Zakat Melaka</span><br />No 1,3 &5, Jalan PNBB 1,<br />Kompleks Niaga Bukit Baru,<br />Jalan Bukit Baru, 75150 Melaka.<br /><span style='font-family:dejavusanscondensed;'>&#9742;</span> 1-300-88-0233</td>
         </table>
     </htmlpageheader>
 
-    <htmlpagefooter name="myfooter">
-        <div style="border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm; ">
+    <htmlpagefooter name='myfooter'>
+        <div style='border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm; '>
             Page {PAGENO} of {nb}
         </div>
     </htmlpagefooter>
-    <sethtmlpageheader name="myheader" value="on" show-this-page="1" />
-    <sethtmlpagefooter name="myfooter" value="on" />
+    <sethtmlpageheader name='myheader' value='on' show-this-page='1' />
+    <sethtmlpagefooter name='myfooter' value='on' />
     mpdf-->
     <br />
 
-    <table class="items" width="100%" style="font-size: 11pt; border-collapse: collapse;" cellpadding="8">
+    <table class='items' width='100%' style='font-size: 11pt; border-collapse: collapse;' cellpadding='8'>
         <thead>
             <tr>
-                <td width="15%">Bil</td>
-                <td width="10%">Nama Aset</td>
-                <td width="45%">Tarikh Pinjam</td>
-                <td width="15%">Tarikh Pulang</td>
-                <td width="15%">Nama Peminjam</td>
-                <td width="15%">Bahagian</td>
+                <td width='15%'>Bil</td>
+                <td width='10%'>Nama Aset</td>
+                <td width='45%'>Tarikh Pinjam</td>
+                <td width='15%'>Tarikh Pulang</td>
+                <td width='15%'>Nama Peminjam</td>
+                <td width='15%'>Bahagian</td>
             </tr>
         </thead>
-        <tbody> ';
-
-            $html.= '<!-- ITEMS HERE -->
+        <tbody>
+            <!-- ITEMS HERE -->
             <tr>
-                <td align="center">MX37801982</td>
-                <td align="center">$name</td>
+                <td align='center'>MX37801982</td>
+                <td align='center'>$name</td>
                 <td>Womans waterproof jacket<br />Options - Red and charcoal.</td>
-                <td class="cost">&pound;102.11</td>
-                <td class="cost">&pound;102.11</td>
+                <td class='cost'>&pound;102.11</td>
+                <td class='cost'>&pound;102.11</td>
             </tr>
             <tr>
-                <td align="center">MR7009298</td>
-                <td align="center">25</td>
+                <td align='center'>MR7009298</td>
+                <td align='center'>25</td>
                 <td>Steel nails; oval head; 30mm x 3mm. Packs of 1000.</td>
-                <td class="cost">&pound;12.26</td>
-                <td class="cost">&pound;325.60</td>
+                <td class='cost'>&pound;12.26</td>
+                <td class='cost'>&pound;325.60</td>
             </tr>
             <!-- END ITEMS HERE -->
             $values
         </tbody>
     </table>
-    <div style="text-align: center; font-style: italic;">Payment terms: payment due in 30 days</div>
+    <div style='text-align: center; font-style: italic;'>Payment terms: payment due in 30 days</div>
 </body>
 </html>
-';
+";
 
 
 
