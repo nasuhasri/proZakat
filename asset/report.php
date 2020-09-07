@@ -24,7 +24,7 @@
                                             ringkasan aset yang dipinjam
                                         </p>
 
-                                        <form action="report_aset.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <form action="report_aset.php" rel="nofollow" target="_blank" method="post" enctype="multipart/form-data" class="form-horizontal">
                                         <br>
                                         <!-- Pilih Tarikh Dari -->
                                         <div class="row form-group">

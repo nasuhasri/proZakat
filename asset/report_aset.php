@@ -108,6 +108,7 @@ try
 					$html .= '<td width="15%">Tarikh Pinjam</td>';
 					$html .= '<td width="15%">Tarikh Pulang</td>';
 					$html .= '<td width="20%">Nama Peminjam<td>';
+					$html .= '<td width="">Bhg<td>';
 				$html .= '</tr>';
 			$html .= '<thead>';
 			$html .= '<tbody>';
