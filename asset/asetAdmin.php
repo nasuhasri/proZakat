@@ -97,7 +97,7 @@
                                                                 ?>
 
                                                                 <td><?php echo $qtyAset ?></td>
-                                                                <td><a href="usermod_details.php?userModID=<?php echo $uID ?>"><?php echo $uID ?></a></td>
+                                                                <td><a href="staff_details.php?userModID=<?php echo $uID ?>"><?php echo $uID ?></a></td>
                                                                 <td><?php echo $dateMod ?> </td>
 
                                                                 <td>

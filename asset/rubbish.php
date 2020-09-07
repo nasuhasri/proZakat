@@ -119,6 +119,18 @@
             ?>
         </div>
     </div>
+    
+
+			<htmlpageheader name='MyCustomHeader'>
+				<table style='border-bottom: 1px solid #000000; vertical-align: bottom; font-family: serif; font-size: 9pt; color: #000088;' width='100%'>
+					<tbody>
+						<tr>
+							<td width='50%'>Title</td>
+							<td style='text-align: right; font-weight: bold;' width='50%'>Logo</td>
+						</tr>
+					</tbody>
+				</table>
+			</htmlpageheader>
 </div>
 <?php
 
