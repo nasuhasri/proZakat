@@ -69,6 +69,7 @@ mpdf-->
 <td width="45%">Description</td>
 <td width="15%">Unit Price</td>
 <td width="15%">Amount</td>
+<td width="15%">Amount</td>
 </tr>
 </thead>
 <tbody>
@@ -78,6 +79,7 @@ mpdf-->
 <td align="center">10</td>
 <td>Large pack Hoover bags</td>
 <td class="cost">&pound;2.56</td>
+<td class="cost">&pound;25.60</td>
 <td class="cost">&pound;25.60</td>
 </tr>
 <tr>

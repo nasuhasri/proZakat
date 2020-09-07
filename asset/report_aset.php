@@ -1,4 +1,20 @@
 <?php
+	if(!isset($_POST)) {
+		$tDari = $_POST['tarikh-dari'];
+		$tHingga = $_POST['tarikh-hingga'];
+		
+		header('location:report.php');
+		exit();
+	}
+?>
+
+<?php
+$Dari = $_POST['tarikh-dari'];
+$Hingga = $_POST['tarikh-hingga'];
+echo $Dari, $Hingga;
+?>
+
+<?php
 try
 {
 	$path = (getenv('MPDF_ROOT')) ? getenv('MPDF_ROOT') : __DIR__;
@@ -69,7 +85,6 @@ try
 					</tr>
 				</table>
 			</htmlpageheader>
-
 			<htmlpagefooter name='myfooter'>
 				<div style='border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm;'>
 					Page {PAGENO} of {nb}
@@ -88,32 +103,39 @@ try
 		$html .= "<table class='items' width='100%' style='font-size: 11pt; border-collapse: collapse;' cellpadding='10'>";
 			$html .= '<thead>';
 				$html .= '<tr>';
-					$html .= '<td width="15%">Kod Asset</td>';
-					$html .= '<td width="10%">Permohonan ID</td>';
-					$html .= '<td width="45%">Nama Asset</td>';
-					$html .= '<td width="15%">Tarikh Mohon</td>';
-					$html .= '<td width="15%">Tarikh Lulus<td>';
+					$html .= '<td width="10%">Bil</td>';
+					$html .= '<td width="30%">Nama Asset</td>';
+					$html .= '<td width="15%">Tarikh Pinjam</td>';
+					$html .= '<td width="15%">Tarikh Pulang</td>';
+					$html .= '<td width="20%">Nama Peminjam<td>';
 				$html .= '</tr>';
 			$html .= '<thead>';
 			$html .= '<tbody>';
 		
-				if($result->num_rows> 0)
-				{
-					while($row = $result->fetch_assoc())
-					{
+				if($result->num_rows> 0){
+					$no=1;
+					while($row = $result->fetch_assoc()){
 						$astNm = $row["assetName"];
-						$mID = $row["mohonID"];
-						$astCode = $row["assetCode"];
-						$tMohon = $row["tarikh_mohon"];
-						$tLulus = $row["tarikh_lulus"];
+						$tDari = $row["tarikh_dari"];
+						$tHingga = $row["tarikh_hingga"];
+						$tPulang = $row["tarikh_pulang"];
+						$stfNm = $row["staffName"];
+						$dept = $row["dept"];
+
 						
-						$html .= "<tr>";
-							$html .= "<td align='center'>$astCode</td>";
-							$html .= "<td>$mID</td>";
-							$html .= "<td>$astNm</td>";
-							$html .= "<td>$tMohon</td>";
-							$html .= "<td>$tLulus</td>";
-						$html .= "<tr>";
+						if($tDari >= $Dari && $tHingga <= $Hingga){
+							$html .= "<tr>";
+								$html .= "<td align='center'>$no</td>";
+								$html .= "<td>$astNm</td>";
+								$html .= "<td>$tDari</td>";
+								$html .= "<td>$tPulang</td>";
+								$html .= "<td>$stfNm</td>";
+								$html .= "<td>$dept</td>";
+								//$html .= '<td>'.$Dari.'</td>';
+								//$html .= '<td>'.$Hingga.'</td>';
+							$html .= "<tr>";
+						}
+						$no++;
 					}
 				}
 			$html .= '</tbody>';
@@ -128,7 +150,7 @@ try
 	$mpdf->SetAuthor("Pusat Zakat Melaka");
 	$mpdf->SetWatermarkText("Paid");
 	$mpdf->showWatermarkText = false;
-	$mpdf->watermark_font = 'DejaVuSansCondensed';
+	$mpdf->watermark_font = 'Arial';
 	$mpdf->watermarkTextAlpha = 0.1;
 	$mpdf->SetDisplayMode('fullpage');
 
