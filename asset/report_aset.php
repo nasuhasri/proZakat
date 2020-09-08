@@ -9,9 +9,8 @@
 ?>
 
 <?php
-$Dari = $_POST['tarikh-dari'];
-$Hingga = $_POST['tarikh-hingga'];
-echo $Dari, $Hingga;
+$dateFrom = $_POST['tarikh-dari'];
+$dateUntil = $_POST['tarikh-hingga'];
 ?>
 
 <?php
@@ -97,7 +96,8 @@ try
 	$sql = "SELECT * 
 			FROM `km_asset` km, `mohon_pinjaman` mp, `profil_staff` p
 			WHERE km.assetID = mp.assetID
-			AND p.staffID = mp.staffID";
+			AND p.staffID = mp.staffID
+			ORDER BY mp.tarikh_dari DESC";
 			
 	$result = $conn->query($sql);
 		$html .= "<table class='items' width='100%' style='font-size: 11pt; border-collapse: collapse;' cellpadding='10'>";
@@ -108,7 +108,6 @@ try
 					$html .= '<td width="15%">Tarikh Pinjam</td>';
 					$html .= '<td width="15%">Tarikh Pulang</td>';
 					$html .= '<td width="20%">Nama Peminjam<td>';
-					$html .= '<td width="">Bhg<td>';
 				$html .= '</tr>';
 			$html .= '<thead>';
 			$html .= '<tbody>';
@@ -124,7 +123,7 @@ try
 						$dept = $row["dept"];
 
 						
-						if($tDari >= $Dari && $tHingga <= $Hingga){
+						if($tDari >= $dateFrom && $tDari <= $dateUntil){
 							$html .= "<tr>";
 								$html .= "<td align='center'>$no</td>";
 								$html .= "<td>$astNm</td>";

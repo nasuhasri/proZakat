@@ -4,7 +4,7 @@
     <?php include 'header.php'; ?>
 </head>
 <?php include 'isi_atas.php'; ?>
-                        <!-- //////////////////////////////////////////////////////// Start Coding -->
+                        <!--------------------------------------------- Start Coding ------------------------------------------------->
                         <!-- Display booking information -->
                         <div class="row">
                             <div class="col-md-12">
@@ -129,7 +129,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- //////////////////////////////////////////End of coding -->
+                        <!------------------------------------------------------ End of coding --------------------------------------->
 <?php include 'isi_bawah.php'; ?>                    
 </html>
 <!-- end document-->

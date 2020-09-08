@@ -62,8 +62,8 @@
                                                         <td>
                                                             <select id="level" name="level">
                                                                 <option value="0">Pilih Level</option>
-                                                                <option value="STAF" <?php if($status == "STAF") echo "SELECTED";?>>STAF</option>
-                                                                <option value="ADMIN" <?php if($status == "ADMIN") echo "SELECTED";?>>ADMIN</option>
+                                                                <option value="STAF" <?php if($level == "STAF") echo "SELECTED";?>>STAF</option>
+                                                                <option value="ADMIN" <?php if($level == "ADMIN") echo "SELECTED";?>>ADMIN</option>
                                                             </select>	
                                                         </td>
                                                     </tr>

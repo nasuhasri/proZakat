@@ -51,6 +51,7 @@ try
 				}
 			</style>"; 
 
+	/** Header and Footer **/
 	$html .= "<htmlpageheader name='myheader'>
 				<table width='100%'>
 					<tr>
@@ -70,6 +71,12 @@ try
 				</table>
 			</htmlpageheader>
 
+			<htmlpageheader name='myHeader2'>
+				<div style='border-bottom: 1px solid #000000; font-weight: bold;  font-size: 10pt;'>
+					My document
+				</div>
+			</htmlpageheader>
+
 			<htmlpagefooter name='myfooter'>
 				<div style='border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm;'>
 					Page {PAGENO} of {nb}
@@ -77,6 +84,7 @@ try
 			</htmlpagefooter>
 			<sethtmlpageheader name='myheader' value='on' show-this-page='1' />
 			<sethtmlpagefooter name='myfooter' value='on' />";
+	/** End Header and Footer **/
 
 	//select data from database
 	$sql = "SELECT year(tarikh_mohon), month(tarikh_mohon), COUNT(mohonID) 
@@ -114,13 +122,15 @@ try
 				</body>
 			</html>';
 	
-	//select data from database
-	$sqlAset = "SELECT km.assetName, COUNT(mp.mohonID)
+	/** Laporan Kekerapan Aset Dipinjam **/
+	/* select data from database */
+	$sqlAset = "SELECT km.assetName, COUNT(mp.mohonID) AS countAset
 				FROM `mohon_pinjaman` mp, `km_asset` km
-				WHERE km.assetID = mp.assetID
-				GROUP BY km.assetID";
-	$resultAset = $conn->query($sql);
-		$html .= "<br/><br/><table class='items' width='100%' style='font-size: 11pt; border-collapse: collapse;' cellpadding='10'>";
+				WHERE mp.assetID = km.assetID
+				GROUP BY mp.assetID";
+	$resultAset = $conn->query($sqlAset);	
+		$html .= "<br><h2 style='text-align:center'>Jadual Kekerapan Aset Dipinjam</h2>";
+		$html .= "<br/><table class='items' width='100%' style='font-size: 11pt; border-collapse: collapse;' cellpadding='10'>";
 			$html .= '<thead>';
 				$html .= '<tr>';
 					$html .= '<td width="15%">Nama Aset</td>';
@@ -129,17 +139,17 @@ try
 			$html .= '<thead>';
 			$html .= '<tbody>';
 		
-				if($result->num_rows> 0){
-					while($row = $result->fetch_assoc()){
-						$astName = $row["assetName"];
-						$countIDAst = $row["COUNT(mohonID)"];
-						
-						$html .= "<tr>";
-							$html .= "<td align='center'>$astName</td>";
-							$html .= "<td>$countIDAst</td>";
-						$html .= "<tr>";
-					}
+			if($resultAset->num_rows> 0){
+				while($row = $resultAset->fetch_assoc()){
+					$astName = $row["assetName"];
+					$countIDAst = $row["countAset"];
+					
+					$html .= "<tr>";
+						$html .= "<td align='center'>$astName</td>";
+						$html .= "<td>$countIDAst</td>";
+					$html .= "<tr>";
 				}
+			}
 			$html .= '</tbody>';		
 		$html .= "</table>";
 	$html .= '<div style="text-align: center; font-style: italic;">Laporan Kekerapan Aset Dipinjam</div>
@@ -147,8 +157,8 @@ try
 			</html>';
 
 	$mpdf->SetProtection(array('print'));
-	$mpdf->SetTitle("Laporan Permohonan Aset PZM");
-	$mpdf->SetAuthor("Pusat Zakat Melaka");
+	$mpdf->SetTitle("Laporan Ringkas Aset PZM");
+	$mpdf->SetAuthor("Zakat Melaka");
 	$mpdf->SetWatermarkText("Paid");
 	$mpdf->showWatermarkText = false;
 	$mpdf->watermark_font = 'DejaVuSansCondensed';
@@ -157,7 +167,7 @@ try
 
 	$mpdf->WriteHTML($html);
 
-	$mpdf->Output('Laporan Permohonan Aset PZM.pdf', 'I');
+	$mpdf->Output('Laporan Ringkas Aset PZM.pdf', 'I');
 } 
 catch(\Mpdf\MpdfException $e) 
 {

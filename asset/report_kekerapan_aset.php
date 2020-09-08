@@ -79,10 +79,11 @@ try
 			<sethtmlpagefooter name='myfooter' value='on' />";
 	
 	//select data from database
-	$sqlAset = "SELECT mp.assetID, COUNT(mp.mohonID)
-				FROM `mohon_pinjaman` mp
+	$sqlAset = "SELECT km.assetName, COUNT(mp.mohonID) AS countAset
+				FROM `mohon_pinjaman` mp, `km_asset` km
+				WHERE mp.assetID = km.assetID
 				GROUP BY mp.assetID";
-	$resultAset = $conn->query($sql);
+	$resultAset = $conn->query($sqlAset);
 	
 		$html .= "<br/><br/><table class='items' width='100%' style='font-size: 11pt; border-collapse: collapse;' cellpadding='10'>";
 			$html .= '<thead>';
@@ -95,8 +96,8 @@ try
 		
 			if($resultAset->num_rows> 0){
 				while($row = $resultAset->fetch_assoc()){
-					$astName = $row["assetID"];
-					$countIDAst = $row["COUNT(mohonID)"];
+					$astName = $row["assetName"];
+					$countIDAst = $row["countAset"];
 					
 					$html .= "<tr>";
 						$html .= "<td align='center'>$astName</td>";

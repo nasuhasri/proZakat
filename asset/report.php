@@ -62,9 +62,6 @@
                                         <ul class="list-unstyled">
 											<li><a href="report_kekerapan_aset.php" rel="nofollow" target="_blank">Cetak Laporan Kekerapan Aset Dipinjam</a></li>
                                         </ul>
-                                        <ul class="list-unstyled">
-											<li><a href="report_aset.php" rel="nofollow" target="_blank">Cetak laporan</a></li>
-										</ul>
                                     </div>
 								</div>
 							</div>
