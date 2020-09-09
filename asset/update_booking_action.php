@@ -33,7 +33,7 @@
                                     if($resultU == true){
                                         echo "<script type='text/javascript'>
                                                 alert('Permohonan Berjaya Dikemaskini!')
-                                                window.location.href='booking_details.php';
+                                                window.location.href='booking_list.php';
                                             </script>";
                                     }
                                     else {

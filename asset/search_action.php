@@ -4,8 +4,83 @@
 <?php include 'header.php'; ?>
 </head>
 <?php include 'isi_atas.php'; ?>
-                        <!-- //////////////////////////////////////////////////////// Start Coding -->
-                        <table class="table">
+                        <!-------------------------------------------------- Start Coding ---------------------------------------------->
+                        <div class="col-md-10">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">Senarai Carian</strong>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Nama Aset</th>
+                                                <th>Permohonan ID</th>
+                                                <th>Kelulusan</th>
+                                                <th>Tarikh Mohon</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                            $searching = $_GET["search"];
+
+                                            $conn = OpenCon();
+
+                                            //get page number
+                                            $page = 0;
+                                            
+                                            //set variable
+                                            if(isset($_GET["page"])==true){
+                                                $page = $_GET["page"];
+                                            }
+                                            else{
+                                                $page = 0;
+                                            }
+                                            
+                                            //algo for pagination in sql
+                                            if ($page=="" || $page=="1"){
+                                                $page1 = 0;
+                                            }
+                                            else{
+                                                $page1 = ($page*7)-7;
+                                            }
+                                            
+                                            $sql = "SELECT * FROM `km_asset` k, `mohon_pinjaman` mp
+                                                    WHERE mp.assetID = k.assetID
+                                                    AND (mp.mohonID LIKE '%$searching%'
+                                                    OR k.assetName  LIKE '%$searching%'
+                                                    OR mp.kelulusan LIKE '%$searching%')
+                                                    LIMIT $page1,7";
+                                                
+                                            $result=$conn->query($sql);
+                                        
+                                            if($result->num_rows > 0){
+                                                while($row=$result->fetch_assoc()){
+                                                    $astNm =$row["assetName"];
+                                                    $mohonID = $row["mohonID"];
+                                                    $kelulusan = $row["kelulusan"];
+                                                    $tMohon = $row["tarikh_mohon"];								
+
+                                                    echo "<tr>";
+                                                        echo "<td>$astNm</td>";
+                                                        echo "<td>$mohonID</td>";
+                                                        echo "<td>$kelulusan</td>";		
+                                                        echo "<td>$tMohon</td>";				 
+                                                    echo "</tr>";
+                                                }																						
+                                            }
+                                            else{
+                                                echo "<td>Sorry! The product that you are searching for is not in our system </td>";
+                                            }
+
+                                            CloseCon($conn);
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <table class="table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>Nama Aset</th>
@@ -13,24 +88,21 @@
                                     <th>Kelulusan</th>
                                     <th>Tarikh Mohon</th>
                                 </tr>
-                            </thead>			
-                        <?php
+                            </thead>			 -->
+                        <!-- </?php
                             $searching = $_GET["search"];
 
                             $conn = OpenCon();
 
-                            //get page number
                             $page = 0;
-                            
-                            //set variable
+
                             if(isset($_GET["page"])==true){
                                 $page = $_GET["page"];
                             }
                             else{
                                 $page = 0;
                             }
-                            
-                            //algo for pagination in sql
+
                             if ($page=="" || $page=="1"){
                                 $page1 = 0;
                             }
@@ -71,8 +143,8 @@
                                                        
             
                             CloseCon($conn);
-                        ?>
-                        <!-- //////////////////////////////////////////End of coding -->
+                        ?> -->
+                        <!---------------------------------------------------- End of coding ------------------------------------------>
 <?php include 'isi_bawah.php'; ?>                    
 </html>
 <!-- end document-->

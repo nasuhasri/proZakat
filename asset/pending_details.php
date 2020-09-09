@@ -10,6 +10,36 @@
                                 <i class="zmdi zmdi-account-calendar"></i>Permohonan Tertangguh</h3>
                             <div class="table-responsive" id="tableAset">
                                 <table class="table">
+                                    <?php
+                                        $conn = OpenCon();
+                                        $uname = $_SESSION['login_user'];
+
+                                        $sqlLevel = "SELECT p.level FROM `profil_staff` p
+                                                    WHERE p.username = '$uname'";
+                                        $resultLevel = $conn->query($sqlLevel);
+
+                                        if($resultLevel -> num_rows > 0){
+                                            while($row = $resultLevel->fetch_assoc()){
+                                                $level = $row['level'];
+                                            }
+                                        }
+
+                                        if($level == 'ADMIN'){
+                                            $sql = "SELECT * FROM `mohon_pinjaman` mp, `km_asset` k, `profil_staff` p
+                                                    WHERE mp.assetID = k.assetId
+                                                    AND mp.staffID = p.staffID
+                                                    AND mp.kelulusan = 'PENDING'
+                                                    ORDER BY mp.tarikh_mohon DESC";
+                                        }
+                                        else{
+                                            $sql = "SELECT * FROM `mohon_pinjaman` mp, `km_asset` k, `profil_staff` p
+                                                    WHERE mp.assetID = k.assetId
+                                                    AND mp.staffID = p.staffID
+                                                    AND p.username = '$uname'
+                                                    AND mp.kelulusan = 'PENDING'
+                                                    ORDER BY mp.tarikh_mohon DESC";
+                                        }
+                                    ?>
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>#</th>
@@ -18,19 +48,13 @@
                                             <th>Tujuan</th>
                                             <th>Tarikh Mohon</th>
                                             <th>Status Permohonan</th>
+                                            <?php if($level == 'ADMIN'){
+                                                ?><th>Tindakan</th><?php
+                                            }?>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                            $conn = OpenCon();
-                                            $uname = $_SESSION['login_user'];
-
-                                            $sql = "SELECT * FROM `mohon_pinjaman` mp, `km_asset` k, `profil_staff` p
-                                                    WHERE mp.assetID = k.assetId
-                                                    AND mp.staffID = p.staffID
-                                                    AND p.username = '$uname'
-                                                    AND mp.kelulusan = 'PENDING'
-                                                    ORDER BY mp.tarikh_mohon DESC";
+                                        <?php                                            
                                             $result = $conn ->query($sql);
 
                                             if($result-> num_rows > 0) {
@@ -69,6 +93,9 @@
                                                                     ?><td> <span class="badge badge-danger"><?php echo $status; ?></span></td><?php
                                                                 }
                                                             ?>
+                                                            <?php if($level == 'ADMIN'){
+                                                                ?><td><button class="btn btn-danger"> <i class="fa fa-trash"></i>&nbsp; Hapus</button></td><?php
+                                                            } ?>
                                                         </tr>
                                                     <?php
                                                 }

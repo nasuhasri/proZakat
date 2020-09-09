@@ -28,7 +28,8 @@
                                     <?php
                                         $conn=OpenCon();
 
-                                        $sql = "SELECT * FROM `km_asset` k";
+                                        $sql = "SELECT * FROM `km_asset` k
+                                                ORDER BY k.penyelenggaraan ASC";
                                         $result = $conn->query($sql);
 
                                         if($result->num_rows > 0){

@@ -25,12 +25,31 @@
                                             $conn = OpenCon();
                                             $uname = $_SESSION['login_user'];
 
-                                            $sql = "SELECT * FROM `mohon_pinjaman` mp, `km_asset` k, `profil_staff` p
-                                                    WHERE mp.assetID = k.assetId
-                                                    AND mp.staffID = p.staffID
-                                                    AND p.username = '$uname'
-                                                    AND mp.kelulusan = 'DILULUSKAN'
-                                                    ORDER BY mp.tarikh_mohon DESC";
+                                            $sqlLevel = "SELECT p.level FROM `profil_staff` p
+                                                        WHERE p.username = '$uname'";
+                                            $resultLevel = $conn->query($sqlLevel);
+
+                                            if($resultLevel -> num_rows > 0){
+                                                while($row = $resultLevel->fetch_assoc()){
+                                                    $level = $row['level'];
+                                                }
+                                            }
+
+                                            if($level == 'ADMIN'){
+                                                $sql = "SELECT * FROM `mohon_pinjaman` mp, `km_asset` k, `profil_staff` p
+                                                        WHERE mp.assetID = k.assetId
+                                                        AND mp.staffID = p.staffID
+                                                        AND mp.kelulusan = 'DILULUSKAN'
+                                                        ORDER BY mp.tarikh_mohon DESC";
+                                            }
+                                            else{
+                                                $sql = "SELECT * FROM `mohon_pinjaman` mp, `km_asset` k, `profil_staff` p
+                                                        WHERE mp.assetID = k.assetId
+                                                        AND mp.staffID = p.staffID
+                                                        AND p.username = '$uname'
+                                                        AND mp.kelulusan = 'DILULUSKAN'
+                                                        ORDER BY mp.tarikh_mohon DESC";
+                                            }
                                             $result = $conn ->query($sql);
 
                                             if($result-> num_rows > 0) {

@@ -106,16 +106,7 @@
                                                                     <?php
                                                                 }
                                                                 else{
-                                                                    ?>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-primary" onclick="window.location.href= 'update_booking.php?bookingID=<?php echo $mohonID ?>'" disabled>
-                                                                            <i class="fa fa-trash"></i>&nbsp; Kemaskini
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-danger" onclick="window.location.href= 'batal_form.php?bookingID=<?php echo $mohonID ?>'" disabled>
-                                                                            <i class="fa fa-trash"></i>&nbsp; Batalkan
-                                                                        </button>
-                                                                    </td>
-                                                                    <?php
+                                                                    ?><td> - - </td><?php
                                                                 }
                                                             ?>
                                                         </tr>

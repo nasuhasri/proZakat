@@ -41,7 +41,7 @@
                                                     CloseCon($conn);
                                                 ?>                                            
                                                 <h2><b><?php echo $pending; ?></b></h2>
-                                                <span>Permintaann Tertangguh</span>
+                                                <?php echo "<a href=pending_details.php><span><b>Permohonan Tertangguh</b></span></a>" ?>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -76,7 +76,7 @@
                                                     CloseCon($conn);
                                                 ?>                                            
                                                 <h2><b><?php echo $complete; ?></b></h2>
-                                                <span>Permintaan Selesai</span>
+                                                <?php echo "<a href=completed_details.php><span><b>Permohonan Selesai</b></span></a>" ?>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -98,7 +98,8 @@
                                                     $conn = OpenCon();
                                                     $sql = "SELECT COUNT(mp.kelulusan) AS totalReject
                                                             FROM `mohon_pinjaman` mp
-                                                            WHERE mp.kelulusan = 'DIBATALKAN'";
+                                                            WHERE mp.kelulusan = 'DIBATALKAN'
+                                                            OR mp.kelulusan = 'DIBATALKAN USER'";
                                                     $result = $conn->query($sql);
 
                                                     if($result-> num_rows > 0) {
@@ -110,7 +111,7 @@
                                                     CloseCon($conn);
                                                 ?>                                  
                                                 <h2><b><?php echo $reject; ?></b></h2>
-                                                <span>Permintaan Ditolak</span>
+                                                <?php echo "<a href=rejected_details.php><span><b>Permohonan Ditolak</b></span></a>" ?>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
