@@ -31,7 +31,7 @@
 <link href="css/theme.css" rel="stylesheet" media="all">
 
 <!-- Icon -->
-<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="shortcut icon" href="images/icon/PZM1.ico" />
 
 <!-- </?php include ("connPZM.php"); ?> -->
 <!-- </?php include ("session.php"); ?> -->

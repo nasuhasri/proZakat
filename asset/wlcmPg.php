@@ -5,7 +5,7 @@
     <title>Sistem i-Aset</title>
 
     <!-- Icon -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" href="images/icon/PZM1.ico" />
 
     <!-- Bootstrap CSS-->
     <!-- <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all"> -->
@@ -87,7 +87,8 @@
         <table>
             <tr>
                 <td colspan="2">
-                    <button type="button" class="button buttonA" onclick="window.location.href= 'login.php'">Login</button>
+                    <!-- <button type="button" class="button buttonA" onclick="window.location.href= 'login.php'">Login</button> -->
+                    <button type="button" class="button buttonA" onclick="window.location.href= 'loginV16.php'">Log Masuk</button>
                     <!-- <button type="button" class="button buttonS" onclick="window.location.href= 'login.php'">Staf</button> -->
                 </td>
             </tr>

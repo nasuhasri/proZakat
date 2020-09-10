@@ -30,7 +30,7 @@
                         $username = $_POST["username"];
                         $password = $_POST["password"];
 
-                        /* Login without hash password */
+                        /********************************** Login without hash password *****************************************/
                         /* $sql="SELECT * FROM `profil_staff` p WHERE p.username = '$username' AND p.password = '$password'";
                         
                         $result=$conn->query($sql);
@@ -51,7 +51,7 @@
                         else{
                             header("location: login.php");
                         } */
-                         /* End of Login Without Hash Password */
+                         /****************************** End of Login Without Hash Password *******************************************/
 
                         //connect to database
                         $mysqli = new mysqli("localhost", "root", "", "pinjaman_asset");
@@ -80,16 +80,12 @@
                             }
                         }
                         else{
-                            header("location:login.php");    
+                            echo "<script type='text/javascript'>
+                                    alert('Username/Kata Laluan Anda Salah! Sila Cuba Lagi');
+                                    window.location.href='loginV16.php';
+                                </script>";
+                            //header("location:loginV16.php");    
                         }
-
-                        /* $hashpwd = password_hash('Nasuha', PASSWORD_DEFAULT);
-                        if (password_verify('Nasuha', $hashpwd)){
-                            echo "Berjaya";
-                        }
-                        else{
-                            echo "Gi mampus ah kau";
-                        } */
 
                         CloseCon($conn);
                     ?>
