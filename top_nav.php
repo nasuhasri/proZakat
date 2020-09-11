@@ -26,12 +26,24 @@
                                     while($row = $result->fetch_assoc()){
                                         $name = $row["staffName"];
                                         $email = $row["staffEmail"];
+                                        $level = $row["level"];
                                     }
                                 }
+
+                                if($level == 'ADMIN'){
+                                    ?><div class="image">
+                                        <img src="images/admin.jpg" alt="John Doe" />
+                                    </div><?php
+                                }
+                                else{
+                                    ?> <div class="image">
+                                    <img src="images/user.jpg" alt="John Doe" />
+                                </div><?php
+                                }
                             ?>
-                            <div class="image">
-                                <img src="images/avatar3.jpg" alt="John Doe" />
-                            </div>
+                            <!-- <div class="image">
+                                <img src="images/admin.jpg" alt="John Doe" />
+                            </div> -->
                             <div class="content">
                                 <a class="js-acc-btn" href="#"><?php echo $name ?></a>
                             </div>
@@ -39,7 +51,7 @@
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="images/avatar3.jpg" alt="John Doe" />
+                                            <img src="images/admin.jpg" alt="John Doe" />
                                         </a>
                                     </div>
                                     <div class="content">
