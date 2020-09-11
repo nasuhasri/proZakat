@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
+    <script type="text/javascript">
+        function confirmDelete(mohonID)
+        {
+            if(confirm('Adakah Anda Ingin Menghapuskan Permohonan Ini?'))
+            {
+                window.location.href= 'delete_pending_mohon.php?mohonID=' + mohonID;
+            }
+        }
+    </script>
 </head>
 <?php include 'isi_atas.php'; ?>
                         <!-- //////////////////////////////////////////////////////// Start Coding -->
@@ -94,7 +103,9 @@
                                                                 }
                                                             ?>
                                                             <?php if($level == 'ADMIN'){
-                                                                ?><td><button class="btn btn-danger"> <i class="fa fa-trash"></i>&nbsp; Hapus</button></td><?php
+                                                                ?><td><button type="button" class="btn btn-danger" onclick="confirmDelete('<?php echo $mohonID ?>')"> 
+                                                                    <i class="fa fa-trash"></i>&nbsp; Hapus
+                                                                </button></td><?php
                                                             } ?>
                                                         </tr>
                                                     <?php

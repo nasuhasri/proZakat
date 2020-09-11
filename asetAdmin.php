@@ -16,7 +16,18 @@
                 window.location.href= 'delAset.php?assetID=' + assetID;
             }
         }
+
+        $('#stafModal').on('show.bs.modal', function (event) {
+            var myVal = $(event.relatedTarget).data('val');
+            $(this).find('.modal-body').text(myVal);
+            //$(event.currentTarget).find().val(bookId);
+        });
     </script>
+    <style>
+        .table-responsive{
+            color: black;
+        }
+    </style>
 </head>
 <?php include 'isi_atas.php'; ?>
                         <!-- *********************************************** Start Coding **********************************************-->
@@ -65,7 +76,8 @@
                                             <?php
                                                 $conn=OpenCon();
 
-                                                $sql = "SELECT * FROM `km_asset` k";
+                                                $sql = "SELECT * FROM `km_asset` k
+                                                        ORDER BY k.penyelenggaraan";
                                                 $result = $conn->query($sql);
 
                                                 if($result->num_rows > 0){
@@ -97,7 +109,17 @@
                                                                 ?>
 
                                                                 <td><?php echo $qtyAset ?></td>
-                                                                <td><a href="staff_details.php?userModID=<?php echo $uID ?>"><?php echo $uID ?></a></td>
+                                                                <!-- <td><a href="staff_details.php?userModID=</?php echo $uID ?>"></?php echo $uID ?></a></td> -->
+                                                                <?php
+                                                                    if($uID == 100){
+                                                                        ?><td><a href="#" class="my_link" data-toggle="modal" data-target="#stafModal" data-val="100">
+                                                                          100
+                                                                        </a></td><?php
+                                                                    }
+                                                                    else{
+                                                                        ?><td><a href="staff_details.php?userModID=<?php echo $uID ?>"><?php echo $uID ?></a></td><?php
+                                                                    }
+                                                                ?>
                                                                 <td><?php echo $dateMod ?> </td>
 
                                                                 <td>
