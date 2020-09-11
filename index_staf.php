@@ -101,9 +101,11 @@
                                                     $conn = OpenCon();
                                                     $sql = "SELECT COUNT(mp.kelulusan) AS totalReject
                                                             FROM `mohon_pinjaman` mp, `profil_staff` p
-                                                            WHERE mp.kelulusan = 'DIBATALKAN'
-                                                            AND p.staffid = mp.staffID
-                                                            AND p.username = '$uname'";
+                                                            WHERE p.staffid = mp.staffID
+                                                            AND p.username = '$uname'
+                                                            AND (mp.kelulusan = 'DIBATALKAN'
+                                                            OR mp.kelulusan = 'DIBATALKAN USER')
+                                                            ORDER BY mp.tarikh_mohon DESC";
                                                     $result = $conn->query($sql);
 
                                                     if($result-> num_rows > 0) {
