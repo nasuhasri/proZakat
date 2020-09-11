@@ -4,7 +4,7 @@
 <?php include 'header.php'; ?>
 </head>
 <?php include 'isi_atas.php'; ?>
-                        <!-- //////////////////////////////////////////////////////// Start Coding -->
+                        <!------------------------------------------------ Start Coding -------------------------------------------->
                         <div class="user-data m-b-30">
                             <h3 class="title-3 m-b-30">
                                 <i class="zmdi zmdi-account-calendar"></i>Permohonan Ditolak</h3>
@@ -48,8 +48,8 @@
                                                         WHERE mp.assetID = k.assetId
                                                         AND mp.staffID = p.staffID
                                                         AND p.username = '$uname'
-                                                        AND mp.kelulusan = 'DIBATALKAN'
-                                                        OR mp.kelulusan = 'DIBATALKAN USER'
+                                                        AND (mp.kelulusan = 'DIBATALKAN'
+                                                        OR mp.kelulusan = 'DIBATALKAN USER')
                                                         ORDER BY mp.tarikh_mohon DESC";
                                             }
 
@@ -117,7 +117,7 @@
                                 </table>
                             </div>
                         </div>
-                        <!-- //////////////////////////////////////////End of coding -->
+                        <!--------------------------------------------- End of coding ---------------------------------------------->
 <?php include 'isi_bawah.php'; ?>                    
 </html>
 <!-- end document-->

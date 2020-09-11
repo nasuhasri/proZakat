@@ -149,7 +149,7 @@
                                                     CloseCon($conn);
                                                 ?>                                  
                                                 <h2><b><?php echo $maintenance; ?></b></h2>
-                                                <span>Aset Diselenggara</span>
+                                                <?php echo "<a href=aset_selenggara.php><span><b>Aset Diselenggara</b></span></a>" ?>
                                             </div>
                                         </div>
                                         <div class="overview-chart">

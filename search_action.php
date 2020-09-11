@@ -70,7 +70,7 @@
                                                 }																						
                                             }
                                             else{
-                                                echo "<td>Sorry! The product that you are searching for is not in our system </td>";
+                                                echo "<td>Maaf! Carian anda tiada dalam sistem kami.</td>";
                                             }
 
                                             CloseCon($conn);
