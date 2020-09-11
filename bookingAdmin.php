@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <?php include 'header.php'; ?>
+    <script type="text/javascript">
+        function confirmCancel(mohonID)
+        {
+            if(confirm('Adakah Anda Ingin Membatalkan Permohonan Ini?')){
+                window.location.href= 'reject_booking.php?bookingID=' + mohonID;
+            }
+        }
+    </script>
 </head>
 <?php include 'isi_atas.php'; ?>
-                        <!-- //////////////////////////////////////////////////////// Start Coding -->
+                        <!---------------------------------------------------- Start Coding -------------------------------------------------->
                         <!-- Display booking information -->
                         <div class="row">
                             <div class="col-md-12">
@@ -118,10 +126,10 @@
                                                                     }
                                                                     else{
                                                                         ?>
-                                                                        <td><button type="button" class="btn btn-success" onclick="window.location.href= 'approve_booking.php?bookingID=<?php echo $mohonID ?>' " disabled>
+                                                                        <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#booking_overload">
                                                                             <i class="fa fa-edit"></i>&nbsp; Luluskan
                                                                             </button>
-                                                                            <button type="button" class="btn btn-danger" onclick="window.location.href= 'reject_booking.php?bookingID=<?php echo $mohonID ?>'">
+                                                                            <button type="button" class="btn btn-danger" onclick="confirmCancel('<?php echo $mohonID ?>')">
                                                                                 <i class="fa fa-trash"></i>&nbsp; Batalkan
                                                                             </button>
                                                                         </td>
@@ -129,17 +137,7 @@
                                                                     }
                                                                 }
                                                                 else{
-                                                                    ?>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-success" onclick="window.location.href= 'approve_booking.php?bookingID=<?php echo $mohonID ?>' " disabled>
-                                                                            <i class="fa fa-edit"></i>&nbsp; Luluskan
-                                                                        </button>
-                                                                        
-                                                                        <button type="button" class="btn btn-danger" onclick="window.location.href= 'reject_booking.php?bookingID=<?php echo $mohonID ?>'" disabled>
-                                                                            <i class="fa fa-trash"></i>&nbsp; Batalkan
-                                                                        </button>
-                                                                    </td>
-                                                                    <?php
+                                                                    ?><td> - - </td><?php
                                                                 }
                                                                 ?>
                                                             </tr>

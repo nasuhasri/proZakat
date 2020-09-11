@@ -67,6 +67,7 @@
                                                         $availableQty = $row["quantity"];    
                                                         $tPulang = $row["tarikh_pulang"]; 
                                                         $stfID = $row["penerima"];
+                                                        $status = $row["kelulusan"];
 
                                                         ?>
                                                             <tr>
@@ -90,26 +91,32 @@
                                                                 <td> <?php echo $tPulang; ?> </td>
 
                                                                 <!-- Pegawai Yang Menerima -->
-                                                                <td><a href="staff_details.php?userModID=<?php echo $stfID ?>"><?php echo $stfID ?></a></td>
+                                                                <?php
+                                                                    if($stfID == 100){
+                                                                        ?><td><a href="#" class="my_link" data-toggle="modal" data-target="#stafModal" data-val="100">
+                                                                          100
+                                                                        </a></td><?php
+                                                                    }
+                                                                    else{
+                                                                        ?><td><a href="staff_details.php?userModID=<?php echo $stfID ?>"><?php echo $stfID ?></a></td><?php
+                                                                    }
+                                                                ?>
 
                                                                 <!-- Button Tindakan -->
                                                                 <?php
-                                                                if($pulang == "BELUM DIPULANGKAN"){
-                                                                    ?>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' ">
-                                                                            <i class="fa fa-edit"></i>&nbsp; SUDAH DIPULANGKAN
-                                                                        </button>
-                                                                    </td>
-                                                                    <?php                                                                    
+                                                                if($status == "DILULUSKAN") {
+                                                                    if($pulang == "BELUM DIPULANGKAN"){
+                                                                        ?>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' ">
+                                                                                <i class="fa fa-edit"></i>&nbsp; SUDAH DIPULANGKAN
+                                                                            </button>
+                                                                        </td>
+                                                                        <?php                                                                    
+                                                                    }
                                                                 }
                                                                 else{
-                                                                    ?>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' " disabled>
-                                                                            <i class="fa fa-edit"></i>&nbsp; SUDAH DIPULANGKAN
-                                                                        </button>
-                                                                    </td>
+                                                                    ?><td> -- </td>
                                                                     <?php
                                                                 }
                                                                 ?>
