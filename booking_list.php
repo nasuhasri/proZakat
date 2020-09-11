@@ -11,6 +11,11 @@
                 }
             }
         </script>
+        <style>
+            .table-responsive{
+                color: black;
+            }
+        </style>
     </head>
 <?php include 'isi_atas.php'; ?>
                         <!-- //////////////////////////////////////////////////////// Start Coding -->
@@ -26,11 +31,11 @@
                                             <th>Kod Aset</th>
                                             <th>Nama Aset</th>
                                             <th>Tujuan</th>
+                                            <th>Tarikh Mohon</th>
                                             <th>Tarikh Dari</th>
                                             <th>Tarikh Hingga</th>
-                                            <th>Tarikh Mohon</th>
                                             <th>Status Permohonan</th>
-                                            <th>Pembatalan</th>
+                                            <th>Status Pembatalan</th>
                                             <th>Tindakan</th>
                                         </tr>
                                     </thead>
@@ -67,9 +72,9 @@
                                                             <td> <?php echo $astCode; ?> </td>
                                                             <td> <?php echo $astNm; ?> </td>
                                                             <td> <?php echo $tujuan; ?> </td>
+                                                            <td> <?php echo $tMohon; ?> </td>
                                                             <td> <?php echo $tDari; ?> </td>
                                                             <td> <?php echo $tHingga; ?> </td>
-                                                            <td> <?php echo $tMohon; ?> </td>
                                                             <?php 
                                                                 if($status=="DILULUSKAN"){
                                                                     ?><td> <span class="badge badge-success"><?php echo $status; ?></span></td><?php

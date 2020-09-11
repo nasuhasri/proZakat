@@ -11,31 +11,33 @@
             confirmpwd = document.frmChange.confirmpwd;
 
             if(!curpwd.value) {
-                curpwd.focus();
-                document.getElementById("curpwd").innerHTML = "required";
+                document.getElementById("curpwd").focus();
                 output = false;
             }
             else if(!newpwd.value) {
-                newpwd.focus();
-                document.getElementById("newpwd").innerHTML = "required";
+                document.getElementById("newpwd").focus();
                 output = false;
             }
             else if(!confirmpwd.value) {
-                confirmpwd.focus();
-                document.getElementById("confirmpwd").innerHTML = "required";
+                document.getElementById("confirmpwd").focus();
                 output = false;
             }
 
             if(newpwd.value != confirmpwd.value) {
                 newpwd.value="";
                 confirmpwd.value="";
-                newpwd.focus();
-                document.getElementById("confirmpwd").innerHTML = "Password Is Not Same";
+                document.getElementById("newpwd").focus();                        
+                alert("Kata Laluan Yang Anda Masukkan Tidak Sama!"); 
                 output = false;
             } 	
             return output;
         }
     </script>
+    <style>
+        .card-body{
+            color: black;
+        }
+    </style>
 </head>
 <?php include 'isi_atas.php'; ?>
                         <!-- /***************************************** Start Coding *************************************************\ -->
@@ -53,19 +55,19 @@
                                         <strong>Borang Ubah Kata Laluan</strong>
                                     </div>
                                     <div class="card-body card-block">
-                                        <form name="frmChange" method="POST" action="chgpwd_action.php" onSubmit="return validatePassword()">
+                                        <form name="frmChange" method="POST" action="chgpwd_action.php" onsubmit="return (validatePassword())">
                                             <div class="form-group">
-                                                <label for="nf-password" class=" form-control-label">Current Password</label>
-                                                <input type="password" id="curpwd" name="curpwd" placeholder="Enter Current Password.." class="form-control" required>
+                                                <label for="nf-password" class=" form-control-label">Kata Laluan Asal</label>
+                                                <input type="password" id="curpwd" name="curpwd" placeholder="Masukkan kata laluan asal.." class="form-control" required>
                                                 <!-- <span class="help-block">Please enter your email</span> -->
                                             </div>
                                             <div class="form-group">
-                                                <label for="nf-password" class=" form-control-label">New Password</label>
-                                                <input type="password" id="newpwd" name="newpwd" placeholder="Enter New Password.." class="form-control" required>
+                                                <label for="nf-password" class=" form-control-label">Kata Laluan Baharu</label>
+                                                <input type="password" id="newpwd" name="newpwd" placeholder="Masukkan kata laluan baharu.." class="form-control" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="nf-password" class=" form-control-label">Confirm Password</label>
-                                                <input type="password" id="confirmpwd" name="confirmpwd" placeholder="Enter Password Again.." class="form-control" required>
+                                                <label for="nf-password" class=" form-control-label">Sahkan Kata Laluan</label>
+                                                <input type="password" id="confirmpwd" name="confirmpwd" placeholder="Masukkan kata laluan sekali lagi.." class="form-control" required>
                                             </div>
                                     </div>
                                     <div class="card-footer">

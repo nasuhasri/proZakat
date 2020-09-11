@@ -5,7 +5,7 @@
             <div class="header-wrap">
                 <!-- Search button -->
                 <form class="form-header" action="search_action.php" method="GET">
-                    <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                    <input class="au-input au-input--xl" type="text" name="search" placeholder="Carian data &amp; maklumat..." />
                     <button class="au-btn--submit" type="submit">
                         <i class="zmdi zmdi-search"></i>
                     </button>

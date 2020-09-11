@@ -35,7 +35,7 @@
                             if($result == true){
                                 echo "<script type='text/javascript'>
                                         alert('Pembatalan Berjaya Dilakukan. Terima kasih kerana menggunakan perkhidmatan kami!');
-                                        window.location.href='booking_details.php';
+                                        window.location.href='booking_list.php';
                                     </script>";
                             }
                             else{

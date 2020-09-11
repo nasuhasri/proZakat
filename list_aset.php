@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <?php include 'header.php'; ?>
-    </head>
+<head>
+    <?php include 'header.php'; ?>
+    <style>
+        .table-responsive{
+            color: black;
+        }
+    </style>
+</head>
 <?php include 'isi_atas.php'; ?>
-                        <!-- //////////////////////////////////////////////////////// Start Coding -->
+                        <!------------------------------------------------------------ Start Coding ---------------------------------------->
                         <!-- Display asset information -->
                         <div class="row">
                             <div class="col-md-12">
@@ -16,8 +21,8 @@
                         </div>
                         <br>
                         <div class="table-responsive table--no-card m-b-30">
-                            <table class="table table-borderless table-striped table-earning">
-                                <thead>
+                            <table class="table table-borderless table-striped">
+                                <thead class="table thead-dark">
                                     <tr>
                                         <th>Kod Aset</th>
                                         <th>Nama Aset</th>
@@ -62,7 +67,7 @@
                             </table>
                         </div>
                         
-                        <!-- //////////////////////////////////////////End of coding -->
+                        <!--------------------------------------------------------- End of coding ----------------------------------------------->
 <?php include 'isi_bawah.php'; ?>                    
 
 </html>

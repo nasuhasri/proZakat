@@ -43,35 +43,17 @@
                                             echo "Error: " . $sqlUpdate . "<br>" . mysqli_error($conn);
                                         }
                                     }
-
-                                    // if($curpwd == $pwdDB){
-                                    //     $sqlUpdate = "UPDATE `profil_staff` p 
-                                    //                     SET p.password = '$hashnewpwd'
-                                    //                     WHERE p.staffID = $stfID";
-                                    //     $resultU = $conn->query($sqlUpdate);
-    
-                                    //     if($resultU == true){
-                                    //         echo "<script type='text/javascript'>
-                                    //                 alert('Kata Laluan Berjaya Dikemaskini! ')
-                                    //                 window.location.href='index_staf.php';
-                                    //             </script>";
-                                    //     }
-                                    //     else {
-                                    //         echo "Error: " . $sqlUpdate . "<br>" . mysqli_error($conn);
-                                    //     }
-                                    // }
+                                    else{
+                                        echo "<script type='text/javascript'>
+                                                alert('Anda Telah Masukkan Kata Laluan Yang Salah Pada Kata Laluan Asal. Sila Cuba Lagi!');
+                                                window.location.href='chgpwd.php';
+                                            </script>";
+                                    }
                                 }
                             }
-
-                            // if (count($_POST) > 0) {
-                            //     $result = mysqli_query($conn, "SELECT * FROM `profil_staff` p  WHERE p.username = $uname");
-                            //     $row = mysqli_fetch_array($result);
-                            //     if ($_POST["curpwd"] == $row["password"]) {
-                            //         mysqli_query($conn, "UPDATE `profil_staff` p SET p.password='" . $_POST["newpwd"] . "' WHERE p.username = '$uname'");
-                            //         $message = "Password Changed";
-                            //     } else
-                            //         $message = "Current Password is not correct";
-                            // }
+                            else {
+                                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                            }
                         ?>
                         <!-- //////////////////////////////////////////End of coding -->
 <?php include 'isi_bawah.php'; ?>                    

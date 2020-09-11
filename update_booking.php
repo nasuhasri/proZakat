@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include 'header.php'; ?>
+    <?php include 'header.php'; ?>
 </head>
 <?php include 'isi_atas.php'; ?>
-                        <!-- //////////////////////////////////////////////////////// Start Coding -->
+                        <!------------------------------------------------------- Start Coding -------------------------------------------->
                         <!-- Staff can update booking details here -->
                         <form action = "update_booking_action.php" id="updateBooking" method="POST">
                         <?php
@@ -46,7 +46,7 @@
                                                                 <?php
                                                                     $conn = OpenCon();
                                                                     $sql = "SELECT * FROM `km_asset` k
-                                                                            WHERE k.penyelenggaraan = 'AVAILABLE'";
+                                                                            WHERE k.penyelenggaraan = 'MASIH ADA'";
                                                                     $result = $conn->query($sql);
                                     
                                                                     while($row = $result->fetch_assoc()) {
@@ -65,7 +65,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>Tujuan</td>
-                                                        <td><textarea name="tujuan" id="tujuan" rows="9" class="form-control" value="<?php echo $tujuan; ?>"></textarea></td>
+                                                        <td><textarea name="tujuan" id="tujuan" rows="9" class="form-control" value="<?php echo $tujuan; ?>"><?php echo $tujuan; ?></textarea></td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="2" align="center">

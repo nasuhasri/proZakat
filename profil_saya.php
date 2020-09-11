@@ -6,6 +6,7 @@
         <style>
             .table-responsive{
                 text-align: center;
+                color: black;
             }
         </style>
     </head>

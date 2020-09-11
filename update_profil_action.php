@@ -29,7 +29,7 @@
 
                             if($result == true){
                                 echo "<script type='text/javascript'>
-                                        alert('Successfully Updated!')
+                                        alert('Berjaya Dikemaskini!')
                                         window.location.href='profil_saya.php';
                                     </script>";
                             }

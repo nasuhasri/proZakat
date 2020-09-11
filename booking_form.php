@@ -31,6 +31,9 @@
             .card-footer{
                 text-align: center;
             }
+            .card-body{
+                color: black;
+            }
         </style>
     </head>
 <?php include 'isi_atas.php'; ?>
