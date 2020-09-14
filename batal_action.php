@@ -26,7 +26,8 @@
                                     SET mp.batal = 'YA', 
                                         mp.sbb_batal = '$sebab', 
                                         mp.pembatalID = '$stfID',
-                                        mp.kelulusan = 'DIBATALKAN USER' 
+                                        mp.kelulusan = 'DIBATALKAN USER',
+                                        mp.pemulangan = 'PERMOHONAN BATAL' 
                                     WHERE mp.mohonID = '$mohonID'";
                             $result = $conn->query($sql);
 

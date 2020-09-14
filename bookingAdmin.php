@@ -29,7 +29,6 @@
                                         <strong class="card-title">
                                             <li>Nota Penting: </li>
                                             <li>Default value tarikh lulus adalah tarikh permohonan dilakukan</li>
-                                            <li>Butang tindakan tidak akan boleh ditekan jika kuantiti aset yang diperlukan melebihi kuantiti aset sedia ada</li>
                                         </strong>
                                     </div>
                                 </div>

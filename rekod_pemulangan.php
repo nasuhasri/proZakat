@@ -35,7 +35,7 @@
                                                 <th>Tarikh Dari</th>
                                                 <th>Status Pemulangan</th>
                                                 <th>Tarikh Pemulangan</th>
-                                                <th>Pegawai Bertugas</th>
+                                                <th>Pegawai Penerima</th>
                                                 <th>Tindakan</th>
                                             </tr>
                                         </thead>
@@ -54,17 +54,12 @@
                                                     //output data of each row
 
                                                     while($row = $result->fetch_assoc()){
-
-                                                        $mohonID = $row["mohonID"];
-                                                        $tDari = $row["tarikh_dari"];
-                                                        $tHingga = $row["tarikh_hingga"];
-                                                        $tMohon =$row["tarikh_mohon"];
+                                                        
+                                                        $tDari =$row["tarikh_dari"];
                                                         $tujuan = $row["tujuan"];
                                                         $pulang = $row["pemulangan"];
                                                         $astNm = $row["assetName"];
-                                                        $astCode = $row["assetCode"];
-                                                        $qtyNeeded = $row["qtyUser"];  
-                                                        $availableQty = $row["quantity"];    
+                                                        $qtyNeeded = $row["qtyUser"];    
                                                         $tPulang = $row["tarikh_pulang"]; 
                                                         $stfID = $row["penerima"];
                                                         $status = $row["kelulusan"];
@@ -75,15 +70,18 @@
                                                                 <td> <?php echo $astNm; ?> </td>
                                                                 <td> <?php echo $qtyNeeded; ?> </td>
                                                                 <td> <?php echo $tujuan; ?> </td>
-                                                                <td> <?php echo $tMohon; ?> </td>
+                                                                <td> <?php echo $tDari; ?> </td>
                                                                 
-                                                                <!-- Status Permohonanan -->
+                                                                <!-- Status Pemulangan -->
                                                                 <?php 
                                                                     if($pulang=="SUDAH DIPULANGKAN"){
                                                                         ?><td> <span class="badge badge-success"><?php echo $pulang; ?></span></td><?php
                                                                     }
                                                                     else if($pulang=="BELUM DIPULANGKAN"){
                                                                         ?><td> <span class="badge badge-warning"><?php echo $pulang; ?></span></td><?php
+                                                                    }
+                                                                    else if($pulang=="PERMOHONAN BATAL"){
+                                                                        ?><td> <span class="badge badge-danger"><?php echo $pulang; ?></span></td><?php
                                                                     }
                                                                 ?>
                                                                 
@@ -105,15 +103,15 @@
                                                                 <!-- Button Tindakan -->
                                                                 <?php
                                                                 if($status == "DILULUSKAN") {
-                                                                    if($pulang == "BELUM DIPULANGKAN"){
-                                                                        ?>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' ">
-                                                                                <i class="fa fa-edit"></i>&nbsp; SUDAH DIPULANGKAN
-                                                                            </button>
-                                                                        </td>
-                                                                        <?php                                                                    
-                                                                    }
+                                                                    if($pulang == "BELUM DIPULANGKAN") {
+                                                                    ?>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' ">
+                                                                            <i class="fa fa-edit"></i>&nbsp; SUDAH DIPULANGKAN
+                                                                        </button>
+                                                                    </td>
+                                                                    <?php  
+                                                                    } 
                                                                 }
                                                                 else{
                                                                     ?><td> -- </td>

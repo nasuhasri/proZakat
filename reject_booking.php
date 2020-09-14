@@ -23,7 +23,9 @@
                             if($resultS == true){
                                 /** Sql to update booking status becomes 'DIBATALKAN' **/
                                 $sql = "UPDATE `mohon_pinjaman` mp
-                                        SET mp.kelulusan='DIBATALKAN'
+                                        SET mp.kelulusan='DIBATALKAN',
+                                            mp.pemulangan = 'PERMOHONAN BATAL',
+                                            mp.batal = 'YA'
                                         WHERE mp.mohonID=$bookingID";
                                 $result = $conn->query($sql);
                                 
