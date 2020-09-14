@@ -19,10 +19,10 @@
                     $level = $row["level"];
         
                     if($level == 'ADMIN'){
-                    	include 'sbMenu.php'; 
+                    	include ('sbMenu.php'); 
                     }
                     else{
-                    	include 'sbMenu_staf.php';
+                    	include ('sbMenu_staf.php');
                     }
                 }
             }
@@ -34,7 +34,7 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <?php include 'top_nav.php'; ?>
+            <?php include ('top_nav.php'); ?>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">

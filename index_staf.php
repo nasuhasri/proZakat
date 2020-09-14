@@ -5,7 +5,7 @@
         <?php include 'header.php'; ?>
     </head>
 <?php include 'isi_atas.php'; ?>
-                        <!-- //////////////////////////////////////////////////////// Start Coding -->
+                        <!-------------------------------------------------- Start Coding --------------------------------------------------->
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
@@ -34,9 +34,7 @@
                                                     $result = $conn->query($sql);
 
                                                     if($result-> num_rows > 0) {
-                                                        //output data of each row
-                                                        while($row = $result->fetch_assoc()){                                        
-                                                            //echo "<br>" .$row["totalreject"] . "</br>";
+                                                        while($row = $result->fetch_assoc()){ 
                                                             $pending = $row["totalPending"];
                                                         }
                                                     }                                        
@@ -52,6 +50,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- End Permintaann Tertangguh -->
                             <!-- Permintaan Selesai -->
                             <div class="col-sm-6 col-lg-6">
                                 <div class="overview-item overview-item--c2">
@@ -88,6 +87,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- End Permintaan Selesai -->
                             <!-- Permintaan Ditolak -->
                             <div class="col-sm-6 col-lg-6">
                                 <div class="overview-item overview-item--c3">
@@ -126,6 +126,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- End Permintaan Ditolak -->
                             <!-- Aset Diselenggara -->
                             <div class="col-sm-6 col-lg-6">
                                 <div class="overview-item overview-item--c4">
@@ -143,7 +144,6 @@
                                                     $result = $conn->query($sql);
 
                                                     if($result-> num_rows > 0) {
-                                                        //output data of each row
                                                         while($row = $result->fetch_assoc()){  
                                                             $maintenance = $row["maintenance"];
                                                         }
@@ -160,8 +160,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- End Aset Diselenggara -->
                         </div>
-                        <!-- //////////////////////////////////////////End of coding -->
+                        <!-------------------------------------------------- End of coding -------------------------------------------------->
 <?php include 'isi_bawah.php'; ?>                    
 
 </html>

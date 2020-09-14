@@ -39,36 +39,32 @@
 					Log Masuk Akaun
 				</span>
 				<form action="login_action.php" method="POST" class="login100-form validate-form p-b-33 p-t-5">
-
+					<!-- Username -->
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="Nama Pengguna">
+						<input class="input100" type="text" name="username" placeholder="Nama Pengguna" required>
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
-
+					<!-- Password -->
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" placeholder="Kata Laluan">
+						<input class="input100" type="password" name="password" placeholder="Kata Laluan" required>
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
-
+					<!-- Action Button -->
 					<div class="container-login100-form-btn m-t-32">
 						<button class="login100-form-btn">
 							Log Masuk
 						</button>
-						<button type="button" class="login100-form-btn mt-2" data-toggle="modal" data-target="#exampleModal">
+						<button type="button" class="login100-form-btn mt-2" data-toggle="modal" data-target="#helpModal">
 							Perlukan Bantuan?
 						</button>
 					</div>
-
 				</form>
 			</div>
 		</div>
 	</div>
-	
 
-	<div id="dropDownSelect1"></div>
-
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<!-- Help Modal -->
+	<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 		<div class="modal-header">
@@ -81,7 +77,7 @@
 			Sila hubungi admin di talian 06-2836245 atau emelkan kepada admin@pzm.com
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
 		</div>
 		</div>
 	</div>

@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- </?php include 'header.php'; ?> -->
     <title>Sistem i-Aset</title>
 
     <!-- Icon -->
     <link rel="shortcut icon" href="images/icon/PZM1.ico" />
-
-    <!-- Bootstrap CSS-->
-    <!-- <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all"> -->
 
     <style>
         /*style the header*/
@@ -93,10 +89,6 @@
                 </td>
             </tr>
         </table>
-
-        <!-- Bootstrap JS-->
-        <!-- <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-        <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script> -->
 </body>
 </html>
 <!-- end document-->
