@@ -4,7 +4,7 @@
 <?php include 'header.php'; ?>
 </head>
 <?php include 'isi_atas.php'; ?>
-                        <!-- //////////////////////////////////////////////////////// Start Coding -->
+                        <!------------------------------------------------------- Start Coding -------------------------------------------->
                         <?php
                             $conn = OpenCon();
 
@@ -32,12 +32,6 @@
                                 if(! $result){
                                     die('Could not update data: '. mysqli_error($conn));
                                 }
-                                // else {
-                                //     echo "<script type='text/javascript'>
-                                //             alert('Permohonon Berjaya Diluluskan');
-                                //             window.location.href='bookingAdmin.php';
-                                //         </script>";
-                                // }
                             }
 
                             $sql = "SELECT * FROM `mohon_pinjaman` mp, `km_asset` km
@@ -72,7 +66,7 @@
                                 }
                             }
                         ?>
-                        <!-- //////////////////////////////////////////End of coding -->
+                        <!-------------------------------------------------- End of coding -------------------------------------------------->
 <?php include 'isi_bawah.php'; ?>                    
 </html>
 <!-- end document-->

@@ -20,8 +20,20 @@
         $('#stafModal').on('show.bs.modal', function (event) {
             var myVal = $(event.relatedTarget).data('val');
             $(this).find('.modal-body').text(myVal);
-            //$(event.currentTarget).find().val(bookId);
         });
+
+        $(document).ready(function(){
+            var userid = $(this).data('id');
+            $.ajax({
+                url: 'ajaxfile.php',
+                type: 'POST',
+                data: {userid: userid},
+                success: function(response){
+                    $('.modal-body').html(response);
+                    $('#empModal').modal('show');
+                }
+            })
+        })
     </script>
     <style>
         .table-responsive{
@@ -117,6 +129,7 @@
                                                                         </a></td><?php
                                                                     }
                                                                     else{
+                                                                        //echo "<td><a href='#' class='userinfo' data-id='.$uID.'>$uID</a></td>";
                                                                         ?><td><a href="staff_details.php?userModID=<?php echo $uID ?>"><?php echo $uID ?></a></td><?php
                                                                     }
                                                                 ?>

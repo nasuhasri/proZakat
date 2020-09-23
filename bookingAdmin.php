@@ -48,7 +48,6 @@
                                                 <th>Tarikh Hingga</th>
                                                 <th>Tarikh Mohon</th>
                                                 <th>Status Permohonan</th>
-                                                <th>Tarikh Lulus</th>
                                                 <th>Tindakan</th>
                                             </tr>
                                         </thead>
@@ -77,8 +76,7 @@
                                                         $astNm = $row["assetName"];
                                                         $astCode = $row["assetCode"];
                                                         $qtyNeeded = $row["qtyUser"];  
-                                                        $availableQty = $row["quantity"];    
-                                                        $tLulus = $row["tarikh_lulus"]; 
+                                                        $availableQty = $row["quantity"]; 
 
                                                         ?>
                                                             <tr>
@@ -93,19 +91,16 @@
                                                                 
                                                                 <!-- Status Permohonanan -->
                                                                 <?php 
-                                                                    if($status=="DILULUSKAN"){
-                                                                        ?><td> <span class="badge badge-success"><?php echo $status; ?></span></td><?php
-                                                                    }
-                                                                    else if($status=="PENDING"){
-                                                                        ?><td> <span class="badge badge-warning"><?php echo $status; ?></span></td><?php
-                                                                    }
-                                                                    else if($status=="DIBATALKAN" || $status=="DIBATALKAN USER"){
-                                                                        ?><td> <span class="badge badge-danger"><?php echo $status; ?></span></td><?php
-                                                                    }
+                                                                  if($status=="DILULUSKAN"){
+                                                                      ?><td> <span class="badge badge-success"><?php echo $status; ?></span></td><?php
+                                                                  }
+                                                                  else if($status=="PENDING"){
+                                                                      ?><td> <span class="badge badge-warning"><?php echo $status; ?></span></td><?php
+                                                                  }
+                                                                  else if($status=="DIBATALKAN" || $status=="DIBATALKAN USER"){
+                                                                      ?><td> <span class="badge badge-danger"><?php echo $status; ?></span></td><?php
+                                                                  }
                                                                 ?>
-                                                                
-                                                                <!-- Tarikh Lulus -->
-                                                                <td> <?php echo $tLulus; ?> </td>
                                                                 
                                                                 <!-- Button Tindakan -->
                                                                 <?php

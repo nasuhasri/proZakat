@@ -87,38 +87,38 @@
                             </div>
                             <!-- Permintaan Ditolak -->
                             <div class="col-sm-6 col-lg-6">
-                                <div class="overview-item overview-item--c3">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-minus-circle"></i>
-                                            </div>
-                                            <div class="text">
-                                                <?php
-                                                    $conn = OpenCon();
-                                                    $sql = "SELECT COUNT(mp.kelulusan) AS totalReject
-                                                            FROM `mohon_pinjaman` mp
-                                                            WHERE mp.kelulusan = 'DIBATALKAN'
-                                                            OR mp.kelulusan = 'DIBATALKAN USER'";
-                                                    $result = $conn->query($sql);
-
-                                                    if($result-> num_rows > 0) {
-                                                        //output data of each row
-                                                        while($row = $result->fetch_assoc()){  
-                                                            $reject = $row["totalReject"];
-                                                        }
-                                                    }                                        
-                                                    CloseCon($conn);
-                                                ?>                                  
-                                                <h2><b><?php echo $reject; ?></b></h2>
-                                                <?php echo "<a href=rejected_details.php><span><b>Permohonan Ditolak</b></span></a>" ?>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart3"></canvas>
-                                        </div>
+                              <div class="overview-item overview-item--c3">
+                                <div class="overview__inner">
+                                  <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-minus-circle"></i>
                                     </div>
+                                    <div class="text">
+                                      <?php
+                                          $conn = OpenCon();
+                                          $sql = "SELECT COUNT(mp.kelulusan) AS totalReject
+                                                  FROM `mohon_pinjaman` mp
+                                                  WHERE mp.kelulusan = 'DIBATALKAN'
+                                                  OR mp.kelulusan = 'DIBATALKAN USER'";
+                                          $result = $conn->query($sql);
+
+                                          if($result-> num_rows > 0) {
+                                              //output data of each row
+                                              while($row = $result->fetch_assoc()){  
+                                                  $reject = $row["totalReject"];
+                                              }
+                                          }                                        
+                                          CloseCon($conn);
+                                      ?>                                  
+                                      <h2><b><?php echo $reject; ?></b></h2>
+                                      <?php echo "<a href=rejected_details.php><span><b>Permohonan Ditolak</b></span></a>" ?>
+                                    </div>
+                                  </div>
+                                  <div class="overview-chart">
+                                      <canvas id="widgetChart3"></canvas>
+                                  </div>
                                 </div>
+                              </div>
                             </div>
                             <!-- Aset Diselenggara -->
                             <div class="col-sm-6 col-lg-6">

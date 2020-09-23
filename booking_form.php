@@ -16,7 +16,7 @@
                     return false;
                 }
 
-                if (qtyAset == "null" || qtyAset < 0)                  
+                if (qtyAset == "null" || qtyAset <= 0)                  
                 { 
                     alert("Sila Masukkan Kuantiti Yang Betul"); 
                     qtyAset.focus(); 
@@ -80,7 +80,7 @@
                                                     <label for="text-input" class=" form-control-label">Kuantiti Aset</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="number" id="qty_aset" name="qty_aset" class="form-control" min= "0" placeholder="10" required>
+                                                    <input type="number" id="qty_aset" name="qty_aset" class="form-control" min= "1" placeholder="10" required>
                                                     <small class="form-text text-muted">Masukkan kuantiti aset yang diperlukan</small>
                                                 </div>
                                             </div>
