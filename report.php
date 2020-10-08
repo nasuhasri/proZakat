@@ -20,8 +20,8 @@
 									</div>
 									<div class="card-body">
 										<p class="text-muted m-b-15">
-                                            Laporan Harian Aset adalah laporan yang di mana admin boleh tahu
-                                            ringkasan aset yang dipinjam
+                                            Laporan Harian Aset adalah laporan di mana admin boleh mengetahui jumlah permohonan
+                                            yang dibuat oleh staf Zakat Melaka mengikut tarikh yang dipilih.
                                         </p>
 
                                         <form action="report_aset.php" rel="nofollow" target="_blank" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -54,17 +54,25 @@
                                                 <button type="submit" class="btn btn-success btn-md">Papar</button>
                                             </div>
                                         </div>
-
-                                        <br><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">                                
+                                <div class="card mt-4">
+                                    <div class="card-header">
+                                        <h4>Laporan Ringkas Permohonan Aset PZM</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-muted m-b-15">
+                                            Laporan Ringkas Permohonan Aset PZM adalah laporan di mana admin boleh mengetahui jumlah permohonan
+                                            yang dibuat oleh staf Zakat Melaka mengikut bulan dan tahun serta kekerapan aset dipinjam.
+                                        </p>
 										<ul class="list-unstyled">
-											<li><a href="report_jumlah_permohonan.php" rel="nofollow" target="_blank">Cetak Laporan Permohonan</a></li>
-                                        </ul>
-                                        <ul class="list-unstyled">
-											<li><a href="report_kekerapan_aset.php" rel="nofollow" target="_blank">Cetak Laporan Kekerapan Aset Dipinjam</a></li>
+											<li><a href="report_jumlah_permohonan.php" rel="nofollow" target="_blank">Cetak Laporan Ringkas Permohonan Aset PZM</a></li>
                                         </ul>
                                     </div>
-								</div>
-							</div>
+                                </div>
+                            </div>
                         </div>
                         <!-- *********************************************** End of coding *********************************************-->
 <?php include 'isi_bawah.php'; ?>                    

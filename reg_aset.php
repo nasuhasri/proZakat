@@ -23,11 +23,11 @@
                                 <table class="table table-borderless">
                                     <tr>
                                         <td>Kod Aset</td>
-                                        <td><input type="text" name="astCode" maxlength="50" placeholder="HP101"></td>
+                                        <td><input type="text" name="astCode" maxlength="50" placeholder="HP101" required></td>
                                     </tr>
                                     <tr>
                                         <td>Nama Aset</td>
-                                        <td><input type="text" name="astNm" maxlength="200" placeholder="Laptop HP 15-da0xx"></td>
+                                        <td><input type="text" name="astNm" maxlength="200" placeholder="Laptop HP 15-da0xx" required></td>
                                     </tr>
                                 </table>
                             </div>

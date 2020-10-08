@@ -21,13 +21,6 @@
 			$login_pwd = $row['password'];
 
 			$level = $row["level"];
-
-			// if($level == 'ADMIN'){
-			// 	header("location:index.php");    
-			// }
-			// else{
-			// 	header("location:wlcmPg.php");    
-			// }
 		}
 	}
 	else{

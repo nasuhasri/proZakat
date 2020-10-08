@@ -55,6 +55,7 @@
 
                                                     while($row = $result->fetch_assoc()){
                                                         
+                                                        $mohonID = $row["mohonID"];
                                                         $tDari =$row["tarikh_dari"];
                                                         $tujuan = $row["tujuan"];
                                                         $pulang = $row["pemulangan"];
@@ -111,11 +112,11 @@
                                                                         </button>
                                                                     </td>
                                                                     <?php  
+                                                                    } else {
+                                                                        ?><td> -- </td><?php
                                                                     } 
-                                                                }
-                                                                else{
-                                                                    ?><td> -- </td>
-                                                                    <?php
+                                                                } else{
+                                                                    ?><td> -- </td><?php
                                                                 }
                                                                 ?>
                                                             </tr>

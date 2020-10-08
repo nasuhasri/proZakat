@@ -10,6 +10,7 @@
 
                             /** Get bookingID from rekod_pemulangan.php **/
                             $bookingID = $_GET['bookingID'];
+                            echo $bookingID;
 
                             /* Change the line below to our timezone! */
                             date_default_timezone_set('Asia/Kuala_Lumpur');
