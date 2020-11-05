@@ -149,8 +149,7 @@
                             catch (Exception $e) {
                                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                             }
-
-                            echo "try anythingjj"
+                            echo "try"
                         ?>
                         <!-------------------------------------------------- End of coding -------------------------------------------------->
 <?php include 'isi_bawah.php'; ?>                    
