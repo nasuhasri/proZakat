@@ -150,7 +150,7 @@
                                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                             }
 
-                            echo "try anything"
+                            echo "try anythingjj"
                         ?>
                         <!-------------------------------------------------- End of coding -------------------------------------------------->
 <?php include 'isi_bawah.php'; ?>                    
