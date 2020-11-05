@@ -86,8 +86,8 @@
                                 $mail->isSMTP();                                     // Set mailer to use SMTP
                                 $mail->Host       = 'smtp.gmail.com';                // Specify main and backup SMTP servers
                                 $mail->SMTPAuth   = true;                            // Enable SMTP authentication
-                                $mail->Username   = 'nasuhasri10@gmail.com';         // SMTP username
-                                $mail->Password   = 'kudoShin*';                     // SMTP password
+                                $mail->Username   = 'example@email.com';         // SMTP username
+                                $mail->Password   = 'email-password';                     // SMTP password
                                 $mail->SMTPSecure = 'tls';                           // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
                                 $mail->Port       = 587;                             // TCP port to connect to
                             
@@ -118,7 +118,7 @@
                                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                             }
                         ?>
-                        <!-- //////////////////////////////////////////End of coding -->
+                        <!----------------------------------------------- End of coding ------------------------------------------>
 <?php include 'isi_bawah.php'; ?>                    
 </html>
 <!-- end document-->
