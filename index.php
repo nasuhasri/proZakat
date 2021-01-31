@@ -40,7 +40,7 @@
                                                     }                                        
                                                     CloseCon($conn);
                                                 ?>                                            
-                                                <h2><b><?php echo $pending; ?></b></h2>
+                                                <h2><b><?php echo $pending; ?></b></h2>                                                c
                                                 <?php echo "<a href=pending_details.php><span><b>Permohonan Tertangguh</b></span></a>" ?>
                                             </div>
                                         </div>

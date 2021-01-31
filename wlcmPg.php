@@ -4,7 +4,7 @@
     <title>Sistem i-Aset</title>
 
     <!-- Icon -->
-    <link rel="shortcut icon" href="images/icon/PZM1.ico" />
+    <link rel="shortcut icon" href="images/PZM1.ico" />
 
     <style>
         /*style the header*/

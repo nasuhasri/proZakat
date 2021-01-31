@@ -114,9 +114,9 @@
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <textarea name="tujuan" id="tujuan" rows="9" placeholder="Sila tulis tujuan pinjaman..." class="form-control" required></textarea>
-                                                    <!-- <input type="text" name="fullname" maxlength="50" placeholder="Nasuha Asri" required><br> -->
                                                 </div>
                                             </div>
+                                            padam
                                         
                                     </div>
                                     <div class="card-footer">                                        

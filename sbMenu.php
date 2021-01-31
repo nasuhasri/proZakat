@@ -43,7 +43,7 @@
                             <a href="booking_form.php">Permohonan Baru</a>
                         </li>
                         <li>
-                            <a href="aset.php">Aset</a>
+                            <a href="list_aset.php">Aset</a>
                         </li>
                         <li>
                             <a href="booking_list.php">Senarai Permohonan</a>

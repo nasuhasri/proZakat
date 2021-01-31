@@ -107,7 +107,6 @@
                                                                 <td><?php echo $astID ?> </td>
                                                                 <td><?php echo $astCode ?> </td>
                                                                 <td><?php echo $astNm ?> </td>
-
                                                                 <?php 
                                                                     if($status=="MASIH ADA"){
                                                                         ?><td> <span class="badge badge-success"><?php echo $status; ?></span></td><?php
