@@ -66,6 +66,17 @@
                                                         $status = $row["kelulusan"];
                                                         $assetID = $row["assetID"];
 
+                                                        if (!empty($stfID)) {
+                                                            // get staff name
+                                                            $sqlStaff = "SELECT s.staffName
+                                                                         FROM `profil_staff` s
+                                                                         WHERE s.staffID = $stfID";
+                                                            $resultStaff = $conn->query($sqlStaff);
+                                                            $rowStaff = $resultStaff->fetch_assoc();
+                                                            $staffNm = $rowStaff["staffName"];
+                                                        }
+
+
                                                         ?>
                                                             <tr>
                                                                 <td> <?php echo $no++; ?> </td>
@@ -92,13 +103,17 @@
 
                                                                 <!-- Pegawai Yang Menerima -->
                                                                 <?php
-                                                                    if($stfID == 100){
-                                                                        ?><td><a href="#" class="my_link" data-toggle="modal" data-target="#stafModal" data-val="100">
-                                                                          100
-                                                                        </a></td><?php
-                                                                    }
-                                                                    else{
-                                                                        ?><td><a href="staff_details.php?userModID=<?php echo $stfID ?>"><?php echo $stfID ?></a></td><?php
+                                                                    if (!empty($stfID)) {
+                                                                        if($stfID == 100){
+                                                                            ?><td><a href="#" class="my_link" data-toggle="modal" data-target="#stafModal" data-val="100">
+                                                                              100
+                                                                            </a></td><?php
+                                                                        }
+                                                                        else{
+                                                                            ?><td><a href="staff_details.php?userModID=<?php echo $stfID ?>"><?php echo $staffNm ?></a></td><?php
+                                                                        }
+                                                                    } else {
+                                                                        ?><td> -- </td><?php
                                                                     }
                                                                 ?>
 
