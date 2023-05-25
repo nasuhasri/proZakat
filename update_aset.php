@@ -24,6 +24,7 @@
                                     $status = $row["penyelenggaraan"];
                                     $uID = $row["userModID"];
                                     $dateMod = $row["dateMod"];
+                                    $qtyAset = $row["quantity"];
                                     
                                     ?>
                                         <div class="user-data m-b-30">
@@ -42,6 +43,10 @@
                                                     <tr>
                                                         <td>Nama Aset</td>
                                                         <td><input type="text" name="astNm" value="<?php echo $astNm;?>"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kuantiti Aset</td>
+                                                        <td><input type="number" name="astNum" value="<?php echo $qtyAset;?>"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Status Aset</td>

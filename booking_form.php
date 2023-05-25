@@ -116,7 +116,7 @@
                                                     <textarea name="tujuan" id="tujuan" rows="9" placeholder="Sila tulis tujuan pinjaman..." class="form-control" required></textarea>
                                                 </div>
                                             </div>
-                                            padam
+                                            
                                         
                                     </div>
                                     <div class="card-footer">                                        

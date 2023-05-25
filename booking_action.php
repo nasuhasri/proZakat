@@ -15,8 +15,8 @@
                             $tarikhPulang = date("yy/m/d");
 									
                             /* Get mohonID using rand method */                            
-                            $mohonID = date("yy") .rand(100,999);
-                            
+                            $mohonID = date("Y") .rand(100,999);
+
 							/* Get tarikhLulus using date method */
                             $tarikhLulus = date("yy/m/d");
                             
@@ -26,6 +26,7 @@
                             $tujuan = $_POST["tujuan"];
                             $astID = $_POST["assetID"];
                             $qtyAset = $_POST["qty_aset"];
+                            $status = "Pending";
 
                             $uname = $_SESSION['login_user'];
                             $sqlStf = "SELECT * FROM `profil_staff` p
@@ -39,8 +40,8 @@
                             }
 
                             // REMINDER: PLS PUT '' FOR CHARACTER
-                            $sql = "INSERT INTO mohon_pinjaman (mohonID, tarikh_dari,tarikh_hingga, qtyUser, tujuan, tarikh_lulus, tarikh_pulang, assetID, staffID)
-                                    VALUES ($mohonID, '$tarikhDari','$tarikhHingga', $qtyAset, '$tujuan', '$tarikhLulus','$tarikhPulang', $astID, $stfID)";
+                            $sql = "INSERT INTO mohon_pinjaman (mohonID, tarikh_dari,tarikh_hingga, qtyUser, tujuan, kelulusan, tarikh_lulus, tarikh_pulang, assetID, staffID)
+                                    VALUES ($mohonID, '$tarikhDari','$tarikhHingga', $qtyAset, '$tujuan', '$status', '$tarikhLulus','$tarikhPulang', $astID, $stfID)";
                             $result = $conn->query($sql);
 
                             if($result == true){

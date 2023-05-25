@@ -31,7 +31,7 @@
                         $password = $_POST["password"];
 
                         /********************************** Login without hash password *****************************************/
-                        /* $sql="SELECT * FROM `profil_staff` p WHERE p.username = '$username' AND p.password = '$password'";
+                        /*$sql="SELECT * FROM `profil_staff` p WHERE p.username = '$username' AND p.password = '$password'";
                         
                         $result=$conn->query($sql);
 
@@ -50,7 +50,7 @@
                         }
                         else{
                             header("location: login.php");
-                        } */
+                        }*/
                          /****************************** End of Login Without Hash Password *******************************************/
 
                         //connect to database

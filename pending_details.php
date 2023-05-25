@@ -89,16 +89,16 @@
                                                             <td> <?php echo $tujuan; ?> </td>
                                                             <td> <?php echo $tMohon; ?> </td>
                                                             <?php 
-                                                                if($status=="DILULUSKAN"){
+                                                                if(strcasecmp($status,"DILULUSKAN") == 0){
                                                                     ?><td> <span class="badge badge-success"><?php echo $status; ?></span></td><?php
                                                                 }
-                                                                else if($status=="PENDING"){
+                                                                else if(strcasecmp($status,"PENDING") == 0){
                                                                     ?><td> <span class="badge badge-warning"><?php echo $status; ?></span></td><?php
                                                                 }
-                                                                else if($status=="DIBATALKAN"){
+                                                                else if(strcasecmp($status,"DIBATALKAN") == 0){
                                                                     ?><td> <span class="badge badge-danger"><?php echo $status; ?></span></td><?php
                                                                 }
-                                                                else if($status=="DIBATALKAN USER"){
+                                                                else if(strcasecmp($status,"DIBATALKAN USER") == 0){
                                                                     ?><td> <span class="badge badge-danger"><?php echo $status; ?></span></td><?php
                                                                 }
                                                             ?>

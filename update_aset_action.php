@@ -18,6 +18,7 @@
                             $astCode = $_POST["astCode"];
                             $astNm = $_POST["astNm"];					
                             $status = $_POST["status"];
+                            $qtyAset = $_POST["astNum"];
 
                             $uname = $_SESSION['login_user'];
 
@@ -34,7 +35,8 @@
                                                 km.assetName = '$astNm',
                                                 km.penyelenggaraan = '$status',
                                                 km.userModID = $stfID,
-                                                km.dateMod = '$dateMod'
+                                                km.dateMod = '$dateMod',
+                                                km.quantity = $qtyAset
                                             WHERE assetID = '$astID'";
                                     $result = $conn->query($sql);
 
