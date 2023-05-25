@@ -15,7 +15,7 @@
                             $tarikhPulang = date("yy/m/d");
 									
                             /* Get mohonID using rand method */                            
-                            // $mohonID = date("Y") .rand(100,999);
+                            $mohonID = rand(100, 999);
 
 							/* Get tarikhLulus using date method */
                             $tarikhLulus = date("yy/m/d");
@@ -42,8 +42,8 @@
                             }
 
                             // REMINDER: PLS PUT '' FOR CHARACTER
-                            $sql = "INSERT INTO mohon_pinjaman (tarikh_dari, tarikh_hingga, tarikh_mohon, qtyUser, tujuan, kelulusan, tarikh_lulus, tarikh_pulang, pemulangan, assetID, staffID)
-                                    VALUES ('$tarikhDari','$tarikhHingga', '$tarikhMohon', $qtyAset, '$tujuan', '$status', '$tarikhLulus','$tarikhPulang', '$pemulangan', $astID, $stfID)";
+                            $sql = "INSERT INTO mohon_pinjaman (mohonID, tarikh_dari, tarikh_hingga, tarikh_mohon, qtyUser, tujuan, kelulusan, tarikh_lulus, tarikh_pulang, pemulangan, assetID, staffID)
+                                    VALUES ($mohonID, '$tarikhDari','$tarikhHingga', '$tarikhMohon', $qtyAset, '$tujuan', '$status', '$tarikhLulus','$tarikhPulang', '$pemulangan', $astID, $stfID)";
                             $result = $conn->query($sql);
 
                             if($result == true){
