@@ -10,7 +10,7 @@
 
                             /** Get bookingID from rekod_pemulangan.php **/
                             $bookingID = $_GET['bookingID'];
-                            echo $bookingID;
+                            $assetID   = $_GET['assetID'];
 
                             /* Change the line below to our timezone! */
                             date_default_timezone_set('Asia/Kuala_Lumpur');
@@ -23,15 +23,36 @@
                                     WHERE p.username = '$uname'";
                             $result = $conn->query($sql);
 
+                            $sqlGetQtyAsset = "SELECT a.quantity
+                                                FROM `km_asset` a
+                                                WHERE a.assetID = $assetID";
+                            $resultGetQtyAsset = $conn->query($sqlGetQtyAsset);
+
+                            // update quantity asset
+                            if ($resultGetQtyAsset->num_rows > 0) {
+                                while($row = $resultGetQtyAsset->fetch_assoc()) {
+                                    $sqlGetQtyAsset = $row['quantity'] + 1;
+
+                                    $sqlUpdateQtyAsset = "UPDATE `km_asset` a
+                                                          SET a.quantity = $sqlGetQtyAsset
+                                                          WHERE a.assetID = $assetID";
+                                    $resultUpdateQtyAsset = $conn->query($sqlUpdateQtyAsset);
+                                }
+                            } else {
+                                echo "Error: " . $sqlGetQtyAsset . "<br>" . mysqli_error($conn);
+
+                            }
+
+                            // update rekod pinjaman
                             if($result->num_rows > 0){
                                 while($row = $result->fetch_assoc()){
                                     $stfID = $row['staffID'];
-                                    echo $stfID;
                                     $sqlUpdate = "UPDATE `mohon_pinjaman` mp
                                                 SET mp.penerima = $stfID,
                                                     mp.tarikh_pulang = '$tPulang',
                                                     mp.pemulangan = 'SUDAH DIPULANGKAN'
-                                                WHERE mp.mohonID = $bookingID";
+                                                WHERE mp.mohonID = $bookingID
+                                                AND mp.assetID";
                                     $resultUpdate = $conn->query($sqlUpdate);
 
                                     if($resultUpdate == true){

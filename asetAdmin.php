@@ -102,6 +102,14 @@
                                                         $dateMod = $row["dateMod"];
                                                         $qtyAset = $row["quantity"];
 
+                                                        // get staff name
+                                                        $sqlStaff = "SELECT s.staffName
+                                                                     FROM `profil_staff` s
+                                                                     WHERE s.staffID = $uID";
+                                                        $resultStaff = $conn->query($sqlStaff);
+                                                        $rowStaff = $resultStaff->fetch_assoc();
+                                                        $staffNm = $rowStaff["staffName"];
+
                                                         ?>
                                                             <tr>
                                                                 <td><?php echo $astID ?> </td>
@@ -129,7 +137,7 @@
                                                                     }
                                                                     else{
                                                                         //echo "<td><a href='#' class='userinfo' data-id='.$uID.'>$uID</a></td>";
-                                                                        ?><td><a href="staff_details.php?userModID=<?php echo $uID ?>"><?php echo $uID ?></a></td><?php
+                                                                        ?><td><a href="staff_details.php?userModID=<?php echo $uID ?>"><?php echo $staffNm ?></a></td><?php
                                                                     }
                                                                 ?>
                                                                 <td><?php echo $dateMod ?> </td>

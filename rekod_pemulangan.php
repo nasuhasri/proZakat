@@ -64,6 +64,7 @@
                                                         $tPulang = $row["tarikh_pulang"]; 
                                                         $stfID = $row["penerima"];
                                                         $status = $row["kelulusan"];
+                                                        $assetID = $row["assetID"];
 
                                                         ?>
                                                             <tr>
@@ -107,7 +108,7 @@
                                                                     if(strcasecmp($pulang, "BELUM DIPULANGKAN") == 0) {
                                                                     ?>
                                                                     <td>
-                                                                        <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' ">
+                                                                        <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>&assetID=<?php echo $assetID ?>' ">
                                                                             <i class="fa fa-edit"></i>&nbsp; SUDAH DIPULANGKAN
                                                                         </button>
                                                                     </td>
