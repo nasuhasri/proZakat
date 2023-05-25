@@ -14,7 +14,7 @@
 
                             /* Change the line below to our timezone! */
                             date_default_timezone_set('Asia/Kuala_Lumpur');
-                            $tPulang = date("yy/m/d");
+                            $tPulang = date("yy/m/d h:i:s");
 
                             /** Get username current session **/
                             $uname = $_SESSION['login_user'];

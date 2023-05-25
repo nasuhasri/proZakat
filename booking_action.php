@@ -23,10 +23,12 @@
                             /* Get data from booking_form.php using method POST */
 							$tarikhDari = $_POST["tarikh-dari"];
                             $tarikhHingga = $_POST["tarikh-hingga"];
+                            $tarikhMohon = date("yy/m/d h:i:s");
                             $tujuan = $_POST["tujuan"];
                             $astID = $_POST["assetID"];
                             $qtyAset = $_POST["qty_aset"];
                             $status = "Pending";
+                            $pemulangan = "Belum Dipulangkan";
 
                             $uname = $_SESSION['login_user'];
                             $sqlStf = "SELECT * FROM `profil_staff` p
@@ -40,8 +42,8 @@
                             }
 
                             // REMINDER: PLS PUT '' FOR CHARACTER
-                            $sql = "INSERT INTO mohon_pinjaman (mohonID, tarikh_dari,tarikh_hingga, qtyUser, tujuan, kelulusan, tarikh_lulus, tarikh_pulang, assetID, staffID)
-                                    VALUES ($mohonID, '$tarikhDari','$tarikhHingga', $qtyAset, '$tujuan', '$status', '$tarikhLulus','$tarikhPulang', $astID, $stfID)";
+                            $sql = "INSERT INTO mohon_pinjaman (mohonID, tarikh_dari, tarikh_hingga, tarikh_mohon, qtyUser, tujuan, kelulusan, tarikh_lulus, tarikh_pulang, pemulangan, assetID, staffID)
+                                    VALUES ($mohonID, '$tarikhDari','$tarikhHingga', '$tarikhMohon', $qtyAset, '$tujuan', '$status', '$tarikhLulus','$tarikhPulang', '$pemulangan', $astID, $stfID)";
                             $result = $conn->query($sql);
 
                             if($result == true){

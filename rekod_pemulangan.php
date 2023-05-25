@@ -75,13 +75,13 @@
                                                                 
                                                                 <!-- Status Pemulangan -->
                                                                 <?php 
-                                                                    if($pulang=="SUDAH DIPULANGKAN"){
+                                                                    if(strcasecmp($pulang, "SUDAH DIPULANGKAN") == 0){
                                                                         ?><td> <span class="badge badge-success"><?php echo $pulang; ?></span></td><?php
                                                                     }
-                                                                    else if($pulang=="BELUM DIPULANGKAN"){
+                                                                    else if(strcasecmp($pulang, "BELUM DIPULANGKAN") == 0){
                                                                         ?><td> <span class="badge badge-warning"><?php echo $pulang; ?></span></td><?php
                                                                     }
-                                                                    else if($pulang=="PERMOHONAN BATAL"){
+                                                                    else if(strcasecmp($pulang, "PERMOHONAN BATAL") == 0){
                                                                         ?><td> <span class="badge badge-danger"><?php echo $pulang; ?></span></td><?php
                                                                     }
                                                                 ?>
@@ -103,8 +103,8 @@
 
                                                                 <!-- Button Tindakan -->
                                                                 <?php
-                                                                if($status == "DILULUSKAN") {
-                                                                    if($pulang == "BELUM DIPULANGKAN") {
+                                                                if(strcasecmp($status, "DILULUSKAN") == 0) {
+                                                                    if(strcasecmp($pulang, "BELUM DIPULANGKAN") == 0) {
                                                                     ?>
                                                                     <td>
                                                                         <button type="button" class="btn btn-success" onclick="window.location.href= 'update_status_pulang.php?bookingID=<?php echo $mohonID ?>' ">
